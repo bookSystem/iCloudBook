@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zhbit.Domain.Book" table="t_book">
+		<id name="bookId">
+			<generator class="native"></generator>
+		</id>
+		<property name="bookNo" column="bookNo" not-null="true"></property>
+		<property name="bookName" column="bookName" not-null="true"></property>
+		<property name="author" column="author" not-null="true"></property>
+		<property name="bookPrice" column="bookPrice" not-null="true"></property>
+		<property name="bookNum" column="bookNum" not-null="true"></property>
+		<property name="publishName" column="publishName" not-null="true"></property>
+		<property name="image" column="image" not-null="true"></property>
+		<property name="type" column="type" not-null="true"></property>
+		<!-- <property name="child_type" column="child_type" not-null="true"></property> -->
+		<property name="descripe" column="descripe" not-null="true"></property>
+
+		
+	
+		<!-- 
+		<set name="setOrder">
+			<key column="id"></key>
+			<one-to-many class="com.zhbit.userDomain.Order"/>
+		</set> -->
+	</class>
+	
+</hibernate-mapping>
+
+

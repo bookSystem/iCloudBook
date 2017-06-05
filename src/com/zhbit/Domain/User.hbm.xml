@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zhbit.Domain.User" table="t_user">
+		<id name="userId">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="name" column="name" not-null="true"></property>
+		<property name="password" column="password" not-null="true"></property>
+		<!-- <property name="repassword" column="repassword" not-null="true"></property> -->
+		<property name="email" column="email" not-null="true"></property>
+		<property name="telnum" column="telnum" not-null="true"></property>
+		<property name="address" column="address" not-null="true"></property>
+		
+		<set name="setOrder">
+			<key column="userId"></key>
+			<one-to-many class="com.zhbit.Domain.Order"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>
+
+

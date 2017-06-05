@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+          
+          
+<hibernate-configuration>
+	<session-factory>
+		<property name="dialect">
+			org.hibernate.dialect.SQLServerDialect
+		</property>
+		<property name="connection.url">
+			jdbc:sqlserver://localhost\CHEN:1433;databaseName=book	
+		</property>
+		<!-- jdbc:sqlserver://localhost:1433;databaseName=iCloudBookdb -->
+		<property name="connection.username">sa</property>
+		<property name="connection.password">123</property>
+		<property name="connection.driver_class">
+			com.microsoft.sqlserver.jdbc.SQLServerDriver
+		</property>
+		<property name="myeclipse.connection.profile">
+			sqlserver
+		</property>
+		
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		
+		<property name="hbm2ddl.auto">update</property>
+		<property name="javax.persistence.validation.mode">none</property>  
+		<mapping resource="com/zhbit/Domain/User.hbm.xml"/>
+		<mapping resource="com/zhbit/Domain/Seller.hbm.xml"/>
+		<mapping resource="com/zhbit/Domain/Book.hbm.xml"/>
+		<mapping resource="com/zhbit/Domain/Order.hbm.xml"/>
+		<mapping resource="com/zhbit/Domain/OrderItem.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>

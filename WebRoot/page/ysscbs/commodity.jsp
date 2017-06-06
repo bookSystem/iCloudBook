@@ -247,7 +247,8 @@
                     });
                 </script>
 
-                <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%" style="font-size: 11px">
+                <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%"
+                       style="font-size: 11px">
                     <thead>
                     <tr>
                         <th>商品ISBN</th>
@@ -264,6 +265,8 @@
                     </thead>
 
                     <tbody>
+
+                    <!--内容开始-->
                     <tr>
                         <td>
                             <%--内容超出范围会显示--%>
@@ -328,6 +331,8 @@
 
                         </td>
                     </tr>
+                    <!--内容结束-->
+
 
                     </tbody>
                 </table>
@@ -377,7 +382,7 @@
         /* $('#cgoodsimg').f(divs.eq(7).text().trim()); */
         $('#cgoodsinfo').val(divs.eq(8).text().trim());
 
-        var gender =divs.eq(5).text().trim();
+        var gender = divs.eq(5).text().trim();
         if (gender == 'literature') {
             $('#selectliter').attr("selected", true);
         } else if (gender == 'inspiration') {
@@ -479,13 +484,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="cgoodsimg">封面上传</label>
+                    <%--<div class="form-group">--%>
+                        <%--<label class="col-sm-2 control-label" for="cgoodsimg">封面上传</label>--%>
 
-                        <div class="col-sm-10">
-                             <input type="file" class="form-control" id="cgoodsimg">
-                        </div>
-                    </div>
+                        <%--<div class="col-sm-10">--%>
+                            <%--<input type="file" class="form-control" id="cgoodsimg">--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="cgoodsinfo">商品简介</label>
 
@@ -556,16 +561,16 @@
 
 <%--&lt;%&ndash;modal 代码开始&ndash;%&gt;--%>
 <%--<script type="text/javascript">--%>
-    <%--function showAjaxModal() {--%>
-        <%--jQuery('#modal-7').modal('show', {backdrop: 'static'});--%>
+<%--function showAjaxModal() {--%>
+<%--jQuery('#modal-7').modal('show', {backdrop: 'static'});--%>
 
-        <%--jQuery.ajax({--%>
-            <%--url: "data/ajax-content.txt",--%>
-            <%--success: function (response) {--%>
-                <%--jQuery('#modal-7 .modal-body').html(response);--%>
-            <%--}--%>
-        <%--});--%>
-    <%--}--%>
+<%--jQuery.ajax({--%>
+<%--url: "data/ajax-content.txt",--%>
+<%--success: function (response) {--%>
+<%--jQuery('#modal-7 .modal-body').html(response);--%>
+<%--}--%>
+<%--});--%>
+<%--}--%>
 <%--</script>--%>
 
 <%--modal 代码结束--%>

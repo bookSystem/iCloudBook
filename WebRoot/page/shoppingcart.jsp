@@ -96,7 +96,7 @@
                             <div style="margin-left: 20px;padding-top: 5px" class="pull-right">
                                 <%--<a href="scconfirmation.jsp"--%>
                                 <%--id="btn_settlement" type="button" class="btn btn-primary">去结算</a>--%>
-                                <button id="btn_settlement" type="submit" class="btn btn-primary">
+                                <button id="btn_settlement" type="submit" class="btn btn-primary" disabled="disabled">
                                     去结算
                                 </button>
 

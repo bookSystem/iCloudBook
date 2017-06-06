@@ -45,7 +45,7 @@
                     <tr>
                     <td class="t-checkbox text-center minheight">
                     <label style="padding-top:  10px;padding-left: 0">
-                    <input type="checkbox" class="check-one check" name="goodsids"/>
+                    <input type="checkbox" class="check-one check" name="goodsids" value="${st.bookId }"/>
                     </label>
                     </td>
                     <td class="goods text-center" id="goodsid">${st.bookNo }</td>

@@ -13,4 +13,10 @@ public interface CarService {
 
 	Book findOne(int bookId);
 
+	void UpdateNum(int number,int bookId);
+
+	void jiesuan(int[] carItem);
+
+	void checkPrice();
+
 }

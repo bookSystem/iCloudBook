@@ -12,6 +12,14 @@ public class Book {
 	private String type;
 	/*private String child_type;*/
 	private String descripe;
+	private Seller seller;
+	
+	public Seller getSeller() {
+		return seller;
+	}
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
 	public int getBookId() {
 		return bookId;
 	}

@@ -144,8 +144,8 @@
                     <label style="padding: 0 10px">
                         <input type="radio" name="person" value="admin">管理员
                     </label>
-                     <label style="padding: 0 10px;" >
-                        <a href="${pageContext.request.contextPath}/page/forgetpwd.jsp" style="font-size: 15px;color: #9b9b9b">忘记密码</a>
+                     <label style="padding: 0 10px">
+                        <a href="${pageContext.request.contextPath}/page/forgetpwd.jsp">忘记密码</a>
                     </label>
                     
                 </div>
@@ -186,6 +186,9 @@
                     <label style="padding: 0 10px">
                         <input type="radio" name="person" value="seller">卖家
                     </label>
+                    <!-- <label style="padding: 0 10px">
+                        <input type="radio" name="person" value="admin">管理员
+                    </label> -->
                 </div>
                 <span style="margin: 0 auto"><button type="submit" class="btn btn-primary"
                                                      style="text-align:center;width: 100%;margin-top: 5px">注册</button></span>

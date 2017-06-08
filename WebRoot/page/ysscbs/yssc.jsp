@@ -16,19 +16,19 @@
     <meta name="author" content=""/>
 
     <title>云书商城后台管理系统</title>
-    <link rel="shortcut icon" href="../../img/yunlogo.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/yunlogo.ico" type="image/x-icon"/>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
-    <link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
-    <link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/xenon-core.css">
-    <link rel="stylesheet" href="assets/css/xenon-forms.css">
-    <link rel="stylesheet" href="assets/css/xenon-components.css">
-    <link rel="stylesheet" href="assets/css/xenon-skins.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/xenon-core.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/xenon-components.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/ysscbs/assets/css/custom.css">
 
-    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/jquery-1.11.1.min.js"></script>
 
 
 </head>
@@ -44,7 +44,7 @@
 
                 <!-- logo -->
                 <div class="logo">
-                    <a href="yssc.jsp"><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
+                    <a href="yssc.jsp"><img src="${pageContext.request.contextPath}/page/ysscbs/assets/images/logo@2x.png" width="140px" alt=""/></a>
                 </div>
 
 
@@ -72,7 +72,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="commodity.jsp">
+                    <a href="${pageContext.request.contextPath}/page/ysscbs/commodity.jsp">
                         <i class="linecons-star"></i>
                         <span class="title">商品管理</span>
                     </a>
@@ -102,7 +102,7 @@
 
                 <li class="dropdown user-profile">
                     <a href="#" data-toggle="dropdown">
-                        <img src="assets/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32"
+                        <img src="${pageContext.request.contextPath}/page/ysscbs/assets/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32"
                              width="28"/>
                         <span>
                             <%--这里是登录用户的账户名--%>
@@ -172,23 +172,23 @@
 
 
 <!-- Bottom Scripts -->
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/TweenMax.min.js"></script>
-<script src="assets/js/resizeable.js"></script>
-<script src="assets/js/joinable.js"></script>
-<script src="assets/js/xenon-api.js"></script>
-<script src="assets/js/xenon-toggles.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/TweenMax.min.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/resizeable.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/joinable.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/xenon-api.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/xenon-toggles.js"></script>
 
 
 <!-- Imported scripts on this page -->
-<script src="assets/js/xenon-widgets.js"></script>
-<script src="assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
-<script src="assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
-<script src="assets/js/toastr/toastr.min.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/xenon-widgets.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/toastr/toastr.min.js"></script>
 
 
 <!-- JavaScripts initializations and stuff -->
-<script src="assets/js/xenon-custom.js"></script>
+<script src="${pageContext.request.contextPath}/page/ysscbs/assets/js/xenon-custom.js"></script>
 
 </body>
 </html>

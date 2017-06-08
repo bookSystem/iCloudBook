@@ -17,8 +17,9 @@
 		<!-- <property name="child_type" column="child_type" not-null="true"></property> -->
 		<property name="descripe" column="descripe" not-null="true"></property>
 
+		<many-to-one name="seller" column="sellerId" class="com.zhbit.Domain.Seller"></many-to-one>
 		
-	
+		
 		<!-- 
 		<set name="setOrder">
 			<key column="id"></key>

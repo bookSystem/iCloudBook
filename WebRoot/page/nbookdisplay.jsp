@@ -8,36 +8,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<head>
-<title>云书商城-正品书店，品类齐全，价格优惠！</title>
-<link rel="shortcut icon" href="../img/yunlogo.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="../css/reset.css" />
-<link rel="stylesheet" type="text/css"
-	href="../bootstrap/css/bootstrap.min.css" />
-<link href="../css/homeindex.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../javascript/jquery-1.7.2.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/icloudstyle.css" />
-<script type="text/javascript" src="../javascript/navspace.js"></script>
-</head>
 <body>
-
 	<jsp:include page="top.jsp"></jsp:include>
 	<main>
 	<div class="bookdisplay">
-		<img alt="" src="${pageContext.request.contextPath}/${book.image}">
+		<div class="divpic">
+			<img alt="" src="${pageContext.request.contextPath}/${book.image}">
+		</div>
 		<div class="bookinfo">
-			<span class="h1">${book.bookName }</span><br>
-			<br> <span>价格:</span><span class="h2">¥${book.bookPrice
-				}元</span><br>
-			<br> <span>作者:</span><span class="h3">${book.author } 著</span><br>
-			<br> <span>出版社:</span><span class="h3">${book.publishName
-				}</span><br>
-			<br> <span>商品编号:</span><span class="h3">${book.bookNo }</span><br>
-			<br> <span>剩余数量:</span><span class="h3">${book.bookNum }</span><span
-				style="padding-left: 5px">本</span>
+			<span class="h1">${book.bookName }</span><br> <br> <span>价格:</span><span
+				class="h2">¥${book.bookPrice }元</span><br> <br> <span>作者:</span><span
+				class="h3">${book.author } 著</span><br> <br> <span>出版社:</span><span
+				class="h3">${book.publishName }</span><br> <br> <span>商品编号:</span><span
+				class="h3">${book.bookNo }</span><br> <br> <span>剩余数量:</span><span
+				class="h3">${book.bookNum }</span><span style="padding-left: 5px">本</span>
 			<div class="clear"></div>
 			<div class="shoppingcart">
-				 <%-- <form name="shoppingcart" action="car_CarAdd.action?bookId=${book.bookId }" method="post">
+				<%-- <form name="shoppingcart" action="car_CarAdd.action?bookId=${book.bookId }" method="post">
                     <span style="float: left">购买数量:</span>
                     <input type="text" name="number" size="10" value="1" style="float: left;"><br><br><br>
                     <a href="car_CarPay.action?bookId=${book.bookId }">
@@ -45,15 +32,15 @@
                     <span><button class="button2" type="submit">加入购物车</button></span>
                 </form> --%>
 
-				
-				<form id="spcartform" name="shoppingcart" action="car_CarAdd.action?bookId=${book.bookId }" method="post" onsubmit="buyadd(n);">
+
+				<form id="spcartform" name="shoppingcart"
+					action="car_CarAdd.action?bookId=${book.bookId }" method="post"
+					onsubmit="buyadd(n);">
 					<span style="float: left">购买数量:</span> <input type="text"
 						name="number" size="10" value="1" style="float: left;"><br>
-					<br>
-					<br> <span><button class="button1" type="submit"
-							onclick="buyadd(1)">立即购买</button>
-					</span> <span><button class="button2" type="submit"
-							onclick="buyadd(2)">加入购物车</button>
+					<br> <br> <span><button class="button1"
+							type="submit" onclick="buyadd(1)">立即购买</button> </span> <span><button
+							class="button2" type="submit" onclick="buyadd(2)">加入购物车</button>
 					</span>
 				</form>
 
@@ -110,11 +97,8 @@
 		</div>
 		<div class="footcss" align="center">
 			<div class="about">
-				<span><a>关于我们</a>
-				</span> <span>|</span> <span><a>联系我们</a>
-				</span> <span>|</span> <span><a>诚聘英才</a>
-				</span> <span>|</span> <span><a>商务合作</a>
-				</span>
+				<span><a>关于我们</a> </span> <span>|</span> <span><a>联系我们</a> </span> <span>|</span>
+				<span><a>诚聘英才</a> </span> <span>|</span> <span><a>商务合作</a> </span>
 				<div class="aboutclear"></div>
 				<span>云书商城公司版权所有<span
 					style="font-size: 8px;font-family: 'Microsoft YaHei'">&copy;</span>2016-2017</span>

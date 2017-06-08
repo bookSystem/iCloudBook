@@ -1,9 +1,12 @@
 package com.zhbit.Action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.mapping.Array;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zhbit.Domain.Book;
@@ -80,6 +83,40 @@ public class CarAction extends ActionSupport {
 		Book book = carService.findOne(bookId);
 		ServletActionContext.getRequest().getSession().setAttribute("paybook", book);
 		return "CarPay";
+	}
+	
+	/*
+	 * 增加购买数量
+	 */
+	
+	public String UpdateNum(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int number = Integer.parseInt(request.getParameter("num"));
+		int bookId = Integer.parseInt(request.getParameter("bookId"));
+		if(number==0){
+			number=1;
+		}
+		System.out.println("number:"+number+"bookId:"+bookId);
+		carService.UpdateNum(number,bookId);
+		
+		return "UpdateNum";
+	}
+	
+	@SuppressWarnings("all")
+	public String jiesuan(){
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String cartItemIds = request.getParameter("cartItemIds");
+		String[] cartItemIdArray = cartItemIds.split(",");
+		int[] carItem = new int[cartItemIdArray.length];
+		for (int i = 0; i < carItem.length; i++) {
+			carItem[i] = Integer.parseInt(cartItemIdArray[i]);
+			System.out.println(carItem[i]);
+		}
+		carService.jiesuan(carItem);
+		carService.checkPrice();
+		return "jiesuan";
+		
 	}
 	
 	

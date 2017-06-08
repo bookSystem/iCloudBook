@@ -1,5 +1,8 @@
 package com.zhbit.Domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Seller {
 	private int sellerId;
 	private String name;
@@ -9,9 +12,15 @@ public class Seller {
 	private String telnum;
 	private String address;
     private String person;
-    
+    private Set<Book> setBook = new HashSet<Book>();
     
 	
+	public Set<Book> getSetBook() {
+		return setBook;
+	}
+	public void setSetBook(Set<Book> setBook) {
+		this.setBook = setBook;
+	}
 	public int getSellerId() {
 		return sellerId;
 	}

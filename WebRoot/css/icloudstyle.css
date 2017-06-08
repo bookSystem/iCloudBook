@@ -1,699 +1,694 @@
 body {
-    font-family: "Microsoft YaHei";
-    font-size: 14px;
+	font-family: "Microsoft YaHei";
+	font-size: 14px;
 }
 
-.clear {
-    /*Ê∏ÖÈô§‰∏ä‰∏ãdivÊµÆÂä®*/
-    clear: both;
+.clear { /*«Â≥˝…œœ¬div∏°∂Ø*/
+	clear: both;
 }
 
 a {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 /*header css*/
-.greyheader {
-    /*È°∂ÈÉ®ÁÅ∞Ëâ≤ÂØºËà™Êù°*/
-    width: 100%;
-    min-width: 1050px;
-    height: 28px;
-    background-color: #333333;
+.greyheader { /*∂•≤øª“…´µº∫ΩÃı*/
+	width: 100%;
+	min-width: 1050px;
+	height: 28px;
+	background-color: #333333;
 }
 
 .greyheader span {
-    padding: 0 2px;
-    font-size: 13px;
-    color: #cccccc;
-    line-height: 28px;
-    float: right;
+	padding: 0 2px;
+	font-size: 13px;
+	color: #cccccc;
+	line-height: 28px;
+	float: right;
 }
 
-.greyheader span a, a:visited {
-    text-decoration: none;
-    color: #cccccc;
+.greyheader span a,a:visited {
+	text-decoration: none;
+	color: #cccccc;
 }
 
 .greyheader span a:hover {
-    color: #9b9b9b;
+	color: #9b9b9b;
 }
 
 nav {
-    padding: 0;
-    margin: 0 auto;
-    width: 100%;
-    min-width: 1050px;
-    min-height: 160px;
-    height: auto;
-    /*    background-color: #cccccc;*/
-    box-shadow: 0px 1px 3px rgba(51, 51, 51, 0.7);
-    /*Â∑¶Âè≥ ‰∏ä‰∏ã Ê®°Á≥ä*/
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	min-width: 1050px;
+	min-height: 160px;
+	height: auto;
+	/*    background-color: #cccccc;*/
+	box-shadow: 0px 1px 3px rgba(51, 51, 51, 0.7);
+	/*◊Û”“ …œœ¬ ƒ£∫˝*/
 }
 
 #navdiv {
-    width: 1050px;
-    min-width: 1050px;
-    height: 45px;
-    margin: 0 auto;
-    background-color: white;
-    line-height: 45px;
-    /*position: absolute;*/
-    z-index: 1000;
-    text-align: center;
-    display: block;
+	width: 1050px;
+	min-width: 1050px;
+	height: 45px;
+	margin: 0 auto;
+	background-color: white;
+	line-height: 45px;
+	/*position: absolute;*/
+	z-index: 1000;
+	text-align: center;
+	display: block;
 }
 
 nav img {
-    margin: 0 auto;
-    margin-top: 10px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 
 #navdiv ul {
-    margin: 0;
-    /*display: table;*/
-    /*text-align: center;*/
-    list-style-type: none;
-    /*position: absolute;*/
+	margin: 0;
+	/*display: table;*/
+	/*text-align: center;*/
+	list-style-type: none;
+	/*position: absolute;*/
 }
 
 #navdiv ul li {
-    color: #333333;
-    font-weight: bold;
-    margin: 0 10px;
-    padding-right: 40px;
-    /*float: left;*/
-    display: inline;
-    text-align: center;
-    clear: right;
+	color: #333333;
+	font-weight: bold;
+	margin: 0 10px;
+	padding-right: 40px;
+	/*float: left;*/
+	display: inline;
+	text-align: center;
+	clear: right;
 }
 
-#navdiv ul li a, a:visited {
-    cursor: pointer;
-    text-decoration: none;
-    color: #333333;
+#navdiv ul li a,a:visited {
+	cursor: pointer;
+	text-decoration: none;
+	color: #333333; 
 }
 
 #navdiv ul li a:hover {
-    cursor: pointer;
-    color: #0099cc;
-    border-bottom: 2px solid #0099cc;
-    padding-bottom: 3px;
-    transition-property: color, border-bottom;
-    transition-duration: 0.2s;
-    /*transition-delay: 100ms;*/
+	cursor: pointer;
+	color: #0099cc;
+	border-bottom: 2px solid #0099cc;
+	padding-bottom: 3px;
+	transition-property: color, border-bottom;
+	transition-duration: 0.2s;
+	/*transition-delay: 100ms;*/
+}
+
+#navdiv ul li .nav_active {
+	color: #0099cc; 
+	border-bottom: 2px solid #0099cc;
+	padding-bottom: 3px;
 }
 
 #navdiv ul li:hover .navspace {
-    display: block;
+	display: block;
 }
 
 #navdiv ul li .navspace {
-    display: none;
-    width: 100%;
-    min-width: 1050px;
-    height: 40px;
-    background-color: #559b0d;
-    box-shadow: 0px 1px 3px rgba(51, 51, 51, 0.7);
+	display: none;
+	width: 100%;
+	min-width: 1050px;
+	height: 40px;
+	background-color: #559b0d;
+	box-shadow: 0px 1px 3px rgba(51, 51, 51, 0.7);
 }
 
 #navdiv ul li .navspace .option {
-    width: 1050px;
-    margin-top: 10px;
-    background-color: white;
+	width: 1050px;
+	margin-top: 10px;
+	background-color: white;
 }
 
 #navdiv ul li .navspace .option ul {
-    text-decoration: none;
-    list-style-type: none;
+	text-decoration: none;
+	list-style-type: none;
 }
 
 #navdiv ul li .navspace .option ul li {
-    font-size: 13px;
-    color: #333333;
-    padding-right: 25px;
+	font-size: 13px;
+	color: #333333;
+	padding-right: 25px;
 }
 
-#navdiv ul li .navspace .option ul li a, a:visited {
-    cursor: pointer;
-    text-decoration: none;
-    color: #333333;
+#navdiv ul li .navspace .option ul li a,a:visited {
+	cursor: pointer;
+	text-decoration: none;
+	color: #333333;
 }
 
 #navdiv ul li .navspace .option ul li a:hover {
-    cursor: pointer;
-    color: #0099cc;
-    transition-property: color;
-    transition-duration: 0.2s;
+	cursor: pointer;
+	color: #0099cc;
+	transition-property: color;
+	transition-duration: 0.2s;
 }
 
 .navspace {
-    display: none;
-    width: 100%;
-    min-width: 1050px;
-    margin: 0 auto;
-    height: auto;
-    min-height: 80px;
-    z-index: 1;
-    background-color: white;
-    box-shadow: 0px 1px 3px #333333;
+	display: none;
+	width: 100%;
+	min-width: 1050px;
+	margin: 0 auto;
+	height: auto;
+	min-height: 80px;
+	z-index: 1;
+	background-color: white;
+	box-shadow: 0px 1px 3px #333333;
 }
 
 /*footer css*/
 .footcss {
-    width: 100%;
-    min-width: 1050px;
-    height: 100px;
-    background-color: #333333;
+	width: 100%;
+	min-width: 1050px;
+	height: 100px;
+	background-color: #333333;
 }
 
 .footcss .about {
-    width: 1050px;
-    padding-top: 28px;
+	width: 1050px;
+	padding-top: 28px;
 }
 
 .footcss .about span {
-    padding: 0 2px;
-    font-size: 13px;
-    color: #cccccc;
+	padding: 0 2px;
+	font-size: 13px;
+	color: #cccccc;
 }
 
-.footcss .about span a, a:visited {
-    color: #cccccc;
-    cursor: pointer;
-    text-decoration: none;
+.footcss .about span a,a:visited {
+	color: #cccccc;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .footcss .about span a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .logfootcss {
-    width: 100%;
-    min-width: 1050px;
-    height: 100px;
-    background-color: #333333;
-    z-index: 1000;
+	width: 100%;
+	min-width: 1050px;
+	height: 100px;
+	background-color: #333333;
+	z-index: 1000;
 }
 
 .logfootcss .about1 {
-    width: 1050px;
-    padding-top: 28px;
+	width: 1050px;
+	padding-top: 28px;
 }
 
 .logfootcss .span1 {
-    padding: 0 2px;
-    font-size: 13px;
-    color: #cccccc;
+	padding: 0 2px;
+	font-size: 13px;
+	color: #cccccc;
 }
 
-.logfootcss .a1, .a1:visited {
-    color: #cccccc;
-    cursor: pointer;
-    text-decoration: none;
+.logfootcss .a1,.a1:visited {
+	color: #cccccc;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .logfootcss .a1:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .aboutclear {
-    clear: both;
-    padding: 6px 0;
+	clear: both;
+	padding: 6px 0;
 }
 
 /*main css*/
-.displaypic {
-    /*box-shadow:0 -1px 3px  rgba(0,0,0,0.7) inset;*/
-    width: 100%;
-    min-width: 1050px;
-    min-height: 410px;
-    height: auto;
-    background-color: lightskyblue;
-    padding: 0;
-    margin: 0 auto;
-    /*position: absolute;*/
+.displaypic { /*box-shadow:0 -1px 3px  rgba(0,0,0,0.7) inset;*/
+	width: 100%;
+	min-width: 1050px;
+	min-height: 410px;
+	height: auto;
+	background-color: lightskyblue;
+	padding: 0;
+	margin: 0 auto;
+	/*position: absolute;*/
 }
 
 .topic {
-    color: #333333;
-    margin: 0 auto;
-    margin-top: 15px;
-    padding: 0;
-    width: 1050px;
-    height: 35px;
-    line-height: 35px;
-    /*background-color: darkseagreen;*/
+	color: #333333;
+	margin: 0 auto;
+	margin-top: 15px;
+	padding: 0;
+	width: 1050px;
+	height: 35px;
+	line-height: 35px;
+	/*background-color: darkseagreen;*/
 }
 
 .topic span {
-    font-size: 9px;
-    padding-left: 6px;
+	font-size: 9px;
+	padding-left: 6px;
 }
 
 .topic span a .linkon {
-    color: #0099cc;
-    padding-bottom: 3px;
-    border-bottom: 2px solid #0099cc;
-    transition-property: color, border-bottom;
-    transition-duration: 0.2s;
+	color: #0099cc;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #0099cc;
+	transition-property: color, border-bottom;
+	transition-duration: 0.2s;
 }
 
 .topic span a:hover {
-    color: #0099cc;
-    padding-bottom: 3px;
-    border-bottom: 2px solid #0099cc;
-    transition-property: color, border-bottom;
-    transition-duration: 0.2s;
+	color: #0099cc;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #0099cc;
+	transition-property: color, border-bottom;
+	transition-duration: 0.2s;
 }
 
-.topic span a, a:visited {
-    color: #333333;
-    cursor: pointer;
-    text-decoration: none;
+.topic span a,a:visited {
+	color: #333333;
+	cursor: pointer;
+	text-decoration: none;
 }
 
-.topic a, a:visited {
-    color: #333333;
-    cursor: pointer;
-    text-decoration: none;
+.topic a,a:visited {
+	color: #333333;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .topic a:hover {
-    color: #0099cc;
+	color: #0099cc;
 }
 
 .topic .option {
-    padding: 0;
-    float: left;
-    font-size: 20px;
-    font-weight: bold;
-    width: 100px;
+	padding: 0;
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	width: 100px;
 }
 
-.t1container, .t2container, .t3container {
-    width: 1050px;
-    min-height: 250px;
-    height: auto;
-    margin: 0 auto;
-    padding: 0;
+.t1container,.t2container,.t3container {
+	width: 1050px;
+	min-height: 250px;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
 }
 
-a:hover .t{
-    background-color: rgba(204, 204, 204, 0.4);
-
+a:hover .t {
+	background-color: rgba(204, 204, 204, 0.4);
 }
 
 .t {
-    background-color: rgba(204, 204, 204, 0.2);
+	background-color: rgba(204, 204, 204, 0.2);
 }
 
 .t1 {
-    width: 255px;
-    height: 255px;
-    float: left;
-    clear: right;
-    margin: 0 10px 0 0
+	width: 255px;
+	height: 255px;
+	float: left;
+	clear: right;
+	margin: 0 10px 0 0
 }
 
 .t2 {
-    width: 204px;
-    height: 204px;
-    float: left;
-    clear: right;
-    margin: 0 0 10px 10px;
+	width: 204px;
+	height: 204px;
+	float: left;
+	clear: right;
+	margin: 0 0 10px 10px;
 }
 
 .t3 {
-    width: 255px;
-    height: 255px;
-    float: left;
-    clear: right;
-    margin: 0 10px 10px 0
+	width: 255px;
+	height: 255px;
+	float: left;
+	clear: right;
+	margin: 0 10px 10px 0
 }
 
 .t .intro {
-    padding-top: 5px;
-    font-size: 14px;
-    /*margin-top: 164px;*/
-    bottom: 0;
-    height: 50px;
-    background-color: white;
+	padding-top: 5px;
+	font-size: 14px;
+	/*margin-top: 164px;*/
+	bottom: 0;
+	height: 50px;
+	background-color: white;
 }
 
 .t .t1img {
-    padding: 10px 0;
-    width: 255px;
-    height: 205px;
-    overflow: hidden;
-
+	padding: 10px 0;
+	width: 255px;
+	height: 205px;
+	overflow: hidden;
 }
 
 .t .t2img {
-    padding: 10px 0;
-    width: 204px;
-    height: 154px;
-    overflow: hidden;
+	padding: 10px 0;
+	width: 204px;
+	height: 154px;
+	overflow: hidden;
 }
 
 .t .t3img {
-    padding: 10px 0;
-    width: 255px;
-    height: 205px;
-    overflow: hidden;
+	padding: 10px 0;
+	width: 255px;
+	height: 205px;
+	overflow: hidden;
 }
 
 .t img {
-    margin: 0 auto;
-    padding: 0;
-    height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	height: 100%;
 }
 
 /*main start*/
 .main_container {
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    width: 1050px;
-    min-height: 300px;
-    height: auto;
-    /*background-color: #cccccc;*/
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 1050px;
+	min-height: 300px;
+	height: auto;
+	/*background-color: #cccccc;*/
 }
 
 .main_container .navdiv {
-    margin: 0 auto;
-    width: 1050px;
-    height: 65px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
+	margin: 0 auto;
+	width: 1050px;
+	height: 65px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid rgba(204, 204, 204, 0.6);
 }
 
 .main_container .navdiv span {
-    font-size: 13px;
-    line-height: 65px;
-    padding-left: 15px;
-    padding-right: 10px;
-
+	font-size: 13px;
+	line-height: 65px;
+	padding-left: 15px;
+	padding-right: 10px;
 }
 
-.main_container .navdiv a, a:visited {
-    color: #333333;
-    text-decoration: none;
+.main_container .navdiv a,a:visited {
+	color: #333333;
+	text-decoration: none;
 }
 
 .main_container .navdiv a:hover {
-    color: #0099cc;
+	color: #0099cc;
 }
 
 .main_container .catalog {
-    width: 210px;
-    height: 310px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    float: left;
-    text-align: center;
-    /*box-shadow: 0px 0px 3px #333333;*/
-    /*background-color: #9b9b9b;*/
+	width: 210px;
+	height: 310px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	text-align: center;
+	/*box-shadow: 0px 0px 3px #333333;*/
+	/*background-color: #9b9b9b;*/
 }
 
 .main_container .catalog span {
-    font-size: 13px;
-
+	font-size: 13px;
 }
 
 .main_container .catalog .imgdiv {
-    width: 200px;
-    height: 205px;
-    margin: 0 auto;
-    /*margin-top: 5px;*/
-    padding-top: 10px;
-    padding-bottom: 10px;
-    overflow: hidden;
+	width: 200px;
+	height: 205px;
+	margin: 0 auto;
+	/*margin-top: 5px;*/
+	padding-top: 10px;
+	padding-bottom: 10px;
+	overflow: hidden;
 }
 
-.main_container .catalog img {
-    /*margin-top: 5px;*/
-    /*width: 200px;*/
-    /*height: 200px;*/
-    margin: 10px 0 15px 0;
-    height: 100%;
-    /*background-color: #cccccc;*/
+.main_container .catalog img { /*margin-top: 5px;*/
+	/*width: 200px;*/
+	/*height: 200px;*/
+	margin: 10px 0 15px 0;
+	height: 100%;
+	/*background-color: #cccccc;*/
 }
 
 .main_container .catalog .introduce {
-    text-align: left;
-    padding-left: 25px;
-    line-height: 30px;
-    width: 180px;
-    margin: 0 auto;
-    margin-top: 10px;
+	text-align: left;
+	padding-left: 25px;
+	line-height: 30px;
+	width: 180px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 
-.bookcatalog a, a:visited {
-    color: #333333;
-    text-decoration: none;
+.bookcatalog a,a:visited {
+	color: #333333;
+	text-decoration: none;
 }
 
 .bookcatalog a:hover .catalog {
-    box-shadow: 0 0 1px rgba(51, 51, 51, 0.7);
+	box-shadow: 0 0 1px rgba(51, 51, 51, 0.7);
 }
 
 .bookcatalog a:hover .catalog span {
-    color: rgba(51, 51, 51, 0.7);
+	color: rgba(51, 51, 51, 0.7);
 }
 
 .bookcatalog a:hover img {
-    transition-property: margin;
-    transition-duration: 0.3s;
-    /*width: 210px;*/
-    /*height: 210px;*/
-    /*margin-top: 0px;*/
-    margin: 5px 0 20px 0;
+	transition-property: margin;
+	transition-duration: 0.3s;
+	/*width: 210px;*/
+	/*height: 210px;*/
+	/*margin-top: 0px;*/
+	margin: 5px 0 20px 0;
 }
 
 /*main end*/
-
 .login {
-    margin: 0 auto;
-    padding: 0;
-    width: 380px;
-    min-height: 50px;
-    height: auto;
-    background-color: white;
+	margin: 0 auto;
+	padding: 0;
+	width: 380px;
+	min-height: 50px;
+	height: auto;
+	background-color: white;
 }
 
 .login .inputspace {
-    padding: 0;
-    margin: 0 auto;
-    width: 350px;
-    min-height: 50px;
-    height: auto;
-
+	padding: 0;
+	margin: 0 auto;
+	width: 350px;
+	min-height: 50px;
+	height: auto;
 }
 
 .login span {
-    width: 350px;
-    height: 20px;
-    text-align: center;
-    color: red;
-    font-size: 10px;
-    margin: 0 auto;
-    padding: 0;
+	width: 350px;
+	height: 20px;
+	text-align: center;
+	color: red;
+	font-size: 10px;
+	margin: 0 auto;
+	padding: 0;
 }
 
-.login .inputspace form {
-    /*padding-top: 5px;*/
-    margin: 0 auto;
-    min-height: 200px;
-    height: auto;
+.login .inputspace form { /*padding-top: 5px;*/
+	margin: 0 auto;
+	min-height: 200px;
+	height: auto;
 }
 
 .login .inputspace input {
-    width: 350px;
-    height: 50px;
-    float: left;
-    margin: 10px 0;
-    padding: 0 5px;
-    line-height: 50px;
+	width: 350px;
+	height: 50px;
+	float: left;
+	margin: 10px 0;
+	padding: 0 5px;
+	line-height: 50px;
 }
 
 .login .inputspace input::-webkit-input-placeholder {
-    color: rgba(204, 204, 204);
+	color: rgba(204, 204, 204);
 }
 
 .login .inputspace .buttoncss {
-    width: 100%;
-    height: 50px;
-    margin: 10px 0;
-    background-color: #0099cc;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    border-radius: 5px;
+	width: 100%;
+	height: 50px;
+	margin: 10px 0;
+	background-color: #0099cc;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	border-radius: 5px;
 }
 
 .login .inputspace .buttoncss:hover {
-    cursor: pointer;
-    margin: 10px 0;
-    width: 100%;
-    height: 50px;
-    background-color: rgba(0, 153, 204, 0.6);
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: rgba(0, 153, 204);
-    border-radius: 5px;
+	cursor: pointer;
+	margin: 10px 0;
+	width: 100%;
+	height: 50px;
+	background-color: rgba(0, 153, 204, 0.6);
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	color: rgba(0, 153, 204);
+	border-radius: 5px;
 }
 
 /*bookdisplay start*/
 .bookdisplay {
-    margin: 0 auto;
-    width: 1050px;
-    min-height: 300px;
-    height: auto;
-    padding: 10px 0;
-    /*background-color: #9ed04d;*/
+	margin: 0 auto;
+	width: 1050px;
+	min-height: 300px;
+	height: auto;
+	padding: 10px 0;
+	/*background-color: #9ed04d;*/
 }
 
-.bookdisplay img {
-    width: 300px;
-    height: 300px;
-    clear: right;
-    float: left;
+.bookdisplay .divpic {
+	width: 300px;
+	height: 300px;
+	clear: right;
+	float: left;
+	text-align: center;
+}
+
+.bookdisplay .divpic img {
+	margin: 0 auto;
+	padding: 0;
+	height: 100%;
 }
 
 .bookdisplay .bookinfo {
-    float: left;
-    padding: 35px 30px 25px 30px;
-    min-width: 200px;
-    width: auto;
-    min-height: 50px;
-    height: auto;
-    /*background-color: #76bf48;*/
+	float: left;
+	padding: 35px 30px 25px 20px;
+	min-width: 200px;
+	width: auto;
+	min-height: 50px;
+	height: auto;
+	/*background-color: #76bf48;*/
 }
 
 .bookdisplay .bookinfo .h1 {
-    font-size: 25px;
-    font-weight: bold;
-    color: #333333;
-    padding: 0;
-    padding-bottom: 5px;
+	font-size: 25px;
+	font-weight: bold;
+	color: #333333;
+	padding: 0;
+	padding-bottom: 5px;
 }
 
 .bookdisplay .bookinfo .h2 {
-    padding: 0;
-    font-size: 20px;
-    color: red;
-    padding-bottom: 5px;
+	padding: 0;
+	font-size: 20px;
+	color: red;
+	padding-bottom: 5px;
 }
 
 .bookdisplay .bookinfo .h3 {
-    padding: 0;
-    font-size: 10px;
-    font-weight: 100;
-    color: #333333;
-    padding-bottom: 5px;
+	padding: 0;
+	font-size: 10px;
+	font-weight: 100;
+	color: #333333;
+	padding-bottom: 5px;
 }
 
 .bookdisplay .bookinfo span {
-    font-size: 10px;
-    color: #6e6e6e;
-    padding-right: 5px;
-    padding-bottom: 5px;
+	font-size: 10px;
+	color: #6e6e6e;
+	padding-right: 5px;
+	padding-bottom: 5px;
 }
 
 .bookdisplay .bookinfo .shoppingcart {
-    padding-top: 10px;
-    /*float: left;*/
-    width: 400px;
-    min-height: 50px;
-    height: auto;
-    /*background-color: #ffff00;*/
+	padding-top: 10px;
+	/*float: left;*/
+	width: 400px;
+	min-height: 50px;
+	height: auto;
+	/*background-color: #ffff00;*/
 }
 
-.bookdisplay .bookinfo .shoppingcart .button1, .button1:visited {
-    /*float: left;*/
-    width: 108px;
-    height: 43px;
-    background-color: rgba(0, 153, 204, 0.7);
-    border: 1px solid rgb(0, 153, 204);
-    border-radius: 5px;
-    margin: 0 10px;
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    outline: none;
+.bookdisplay .bookinfo .shoppingcart .button1,.button1:visited {
+	/*float: left;*/
+	width: 108px;
+	height: 43px;
+	background-color: rgba(0, 153, 204, 0.7);
+	border: 1px solid rgb(0, 153, 204);
+	border-radius: 5px;
+	margin: 0 10px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	outline: none;
 }
 
 .bookdisplay .bookinfo .shoppingcart .button1:hover {
-    cursor: pointer;
-    /*float: left;*/
-    width: 108px;
-    height: 43px;
-    background-color: rgba(0, 153, 204, 0.8);
-    border: 1px solid rgb(0, 153, 204);
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    outline: none;
+	cursor: pointer;
+	/*float: left;*/
+	width: 108px;
+	height: 43px;
+	background-color: rgba(0, 153, 204, 0.8);
+	border: 1px solid rgb(0, 153, 204);
+	border-radius: 5px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	outline: none;
 }
 
 .bookdisplay .bookinfo .shoppingcart .button1:active {
-    cursor: pointer;
-    /*float: left;*/
-    width: 108px;
-    height: 43px;
-    background-color: rgba(0, 153, 204, 0.9);
-    border: 1px solid rgb(0, 153, 204);
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    outline: none;
+	cursor: pointer;
+	/*float: left;*/
+	width: 108px;
+	height: 43px;
+	background-color: rgba(0, 153, 204, 0.9);
+	border: 1px solid rgb(0, 153, 204);
+	border-radius: 5px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	outline: none;
 }
 
-.bookdisplay .bookinfo .shoppingcart .button2, .button2:visited {
-    cursor: pointer;
-    width: 125px;
-    height: 43px;
-    background-color: rgba(0, 153, 204, 0.2);
-    border: 1px solid rgb(0, 153, 204);
-    border-radius: 5px;
-    margin: 0 10px;
-    text-align: center;
-    color: rgb(0, 153, 204);
-    font-size: 18px;
-    outline: none;
+.bookdisplay .bookinfo .shoppingcart .button2,.button2:visited {
+	cursor: pointer;
+	width: 125px;
+	height: 43px;
+	background-color: rgba(0, 153, 204, 0.2);
+	border: 1px solid rgb(0, 153, 204);
+	border-radius: 5px;
+	margin: 0 10px;
+	text-align: center;
+	color: rgb(0, 153, 204);
+	font-size: 18px;
+	outline: none;
 }
 
-.bookdisplay .bookinfo .shoppingcart .button2:hover {
-    /*float: left;*/
-    width: 125px;
-    height: 43px;
-    background-color: rgba(0, 153, 204, 0.3);
-    border: 1px solid rgb(0, 153, 204);
-    border-radius: 5px;
-    text-align: center;
-    color: rgb(0, 153, 204);
-    font-size: 18px;
-    outline: none;
+.bookdisplay .bookinfo .shoppingcart .button2:hover { /*float: left;*/
+	width: 125px;
+	height: 43px;
+	background-color: rgba(0, 153, 204, 0.3);
+	border: 1px solid rgb(0, 153, 204);
+	border-radius: 5px;
+	text-align: center;
+	color: rgb(0, 153, 204);
+	font-size: 18px;
+	outline: none;
 }
 
-.bookdisplay .bookinfo .shoppingcart .button2:active {
-    /*float: left;*/
-    width: 125px;
-    height: 43px;
-    background-color: rgba(0, 153, 204, 0.4);
-    border: 1px solid rgb(0, 153, 204);
-    border-radius: 5px;
-    text-align: center;
-    color: rgb(0, 153, 204);
-    font-size: 18px;
-    outline: none;
+.bookdisplay .bookinfo .shoppingcart .button2:active { /*float: left;*/
+	width: 125px;
+	height: 43px;
+	background-color: rgba(0, 153, 204, 0.4);
+	border: 1px solid rgb(0, 153, 204);
+	border-radius: 5px;
+	text-align: center;
+	color: rgb(0, 153, 204);
+	font-size: 18px;
+	outline: none;
 }
-
-
-
-
-

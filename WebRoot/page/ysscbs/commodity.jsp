@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -41,6 +42,12 @@
 
 </head>
 <body class="page-body skin-navy">
+<%
+	if(request.getAttribute("bookList")==null)
+	{
+		response.sendRedirect("sellerBook_showBook.action"); 
+	}
+%>
 
 <div class="page-container">
 
@@ -148,54 +155,54 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
+                <form action="sellerBook_addBook.action" method="post" enctype="multipart/form-data" role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="goodsname">商品名称</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="goodsname" placeholder="" value="">
+                            <input type="text" class="form-control" id="goodsname" name="bookName" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="goodsid">商品ISBN</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="goodsid" placeholder="" value="">
+                            <input type="number" class="form-control" id="goodsid" name="bookNo" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="goodsauthor">作者</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="goodsauthor" placeholder="" value="">
+                            <input type="text" class="form-control" id="goodsauthor" name="author" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="goodsprice">价格</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="goodsprice" placeholder="" value="">
+                            <input type="number" class="form-control" id="goodsprice" name="bookPrice" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="goodspress">出版社</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="goodspress" placeholder="" value="">
+                            <input type="text" class="form-control" id="goodspress" name="publishName" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="goodsremain">库存量</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="goodsremain" placeholder="" value="">
+                            <input type="number" class="form-control" id="goodsremain" name="bookNum" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">分类</label>
 
                         <div class="col-sm-10">
-                            <select class="form-control">
+                            <select class="form-control" name="type">
                                 <option>请选择商品分类</option>
                                 <option>文艺</option>
                                 <option>励志</option>
@@ -208,14 +215,14 @@
                         <label class="col-sm-2 control-label" for="goodsimg">封面上传</label>
 
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" id="goodsimg">
+                            <input type="file" class="form-control" id="goodsimg" name="image">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="goodsinfo">商品简介</label>
 
                         <div class="col-sm-10">
-                            <textarea class="form-control" cols="5" rows="8" id="goodsinfo"></textarea>
+                            <textarea class="form-control" cols="5" rows="8" id="goodsinfo" name="descripe"></textarea>
                         </div>
                     </div>
                     <div class="form-group" style="padding-left: 300px">
@@ -248,7 +255,7 @@
                 </script>
 
                 <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%"
-                       style="font-size: 11px">
+                       style="font-size: 11px">     
                     <thead>
                     <tr>
                         <th>商品ISBN</th>
@@ -265,57 +272,54 @@
                     </thead>
 
                     <tbody>
-
                     <!--内容开始-->
+                     <c:forEach items="${bookList.list}" var="book">
                     <tr>
+                    <input type="hidden" name="bookId" value="${ book.bookId}">
                         <td>
                             <%--内容超出范围会显示--%>
                             <div class="tdcss" style="width: 90px">
-                                98779862543
+                                ${ book.bookNo}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 50px">
-                                红楼梦
+                              ${ book.bookName}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 50px">
-                                罗贯中
+                               ${ book.author}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 20px">
-                                45
+                                ${ book.bookPrice}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 20px">
-                                35
+                                ${ book.bookNum}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:50px;">
-                                inspiration
+                               ${ book.type}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 50px">
-                                清华出版社
+                                ${ book.publishName}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:60px;">
-                                book/image/bookimage/20001212131.jpg
+                                ${ book.image}
                             </div>
                         </td>
                         <td>
                             <div id="tgoodsinfo" class="tdcss" style="width: 80px">
-                                那是距今七年前的事了。当时的我刚满四十岁，虽然已经称不上年轻，但如果把人生比作一场马拉松，也还没抵达折返点。至少，当时的我是这么想的。
-                                那年春天我结了婚。在成为丈夫的同时，我也成了一个小学五年级男孩的父亲。也就是说，我的结婚对象是带着她和前夫的小孩跟我结婚的。这也没什么不一般的。顺带一提，“一般”，正好也是那个男孩——名字叫做淳史——的口头禅。
-                                “已经很不错了啦，你还配不上人家呢！”姐姐说。
-                                就算被如此揶揄，我也没有感到不是滋味。虽然姐姐只大我两岁，但她从小就爱把我当小孩子看，而后遗症至今还留在我身上。至于父亲，则没有对我的婚姻表达任何意见。基本上除了婚姻之外，关于我的任何事情，他也几乎没有表达过什么意见。恐怕他是对我的事情没兴趣吧。而母亲，与其说在意我跟怎样的女性结婚，她更在乎的是我总算结婚了的这个事实，终于让她放下多年以来肩上的重担。不过认真说来，我猜她心里也不太认同这桩婚事吧。
-
+                             	${ book.descripe}
                             </div>
                         </td>
                         <td width="120px" align="center">
@@ -331,10 +335,12 @@
 
                         </td>
                     </tr>
+                    </c:forEach>
                     <!--内容结束-->
 
 
                     </tbody>
+                    
                 </table>
 
             </div>
@@ -371,7 +377,8 @@
     function editInfo(obj) {
 //        修改函数
         var divs = $(obj).parent().parent().children().find('div');
-
+        $('#mhiddenbookId').val($(obj).parent().parent().find('input').val());
+        alert( $('#mhiddenbookId').val());
         $('#cgoodsid').val(divs.eq(0).text().trim());
         $('#cgoodsname').val(divs.eq(1).text().trim());
         $('#cgoodsauthor').val(divs.eq(2).text().trim());
@@ -381,7 +388,6 @@
         $('#cgoodspublish').val(divs.eq(6).text().trim());
         /* $('#cgoodsimg').f(divs.eq(7).text().trim()); */
         $('#cgoodsinfo').val(divs.eq(8).text().trim());
-
         var gender = divs.eq(5).text().trim();
         if (gender == 'literature') {
             $('#selectliter').attr("selected", true);
@@ -392,19 +398,17 @@
         } else {
             $('#selecttech').attr("selected", true);
         }
-
         $('#modal-6').modal('show');
     }
-
     function deleteInfo(obj) {
 //        删除函数
         var divs = $(obj).parent().parent().children().find('div');
+        $('#dhiddenbookId').val($(obj).parent().parent().find('input').val());
+        alert( $('#dhiddenbookId').val());
         $('#dgoodsid').val(divs.eq(0).text().trim());
         $('#dgoodsname').val(divs.eq(1).text().trim());
-
         $('#modal-4').modal('show');
     }
-
 </script>
 <%----%>
 
@@ -420,13 +424,13 @@
             </div>
 
             <div class="modal-body">
-
-                <form role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
+                <form action="sellerBook_updateBook.action" method="get" role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
+                <input type="hidden" id="mhiddenbookId" name="bookId" value="">
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="cgoodsname">商品名称</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cgoodsname" name="cgoodname" placeholder=""
+                            <input type="text" class="form-control" id="cgoodsname" name="bookName" placeholder=""
                                    value="">
                         </div>
                     </div>
@@ -434,7 +438,7 @@
                         <label class="col-sm-2 control-label" for="cgoodsid">商品ISBN</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="cgoodsid" name="cgoodsid" placeholder=""
+                            <input type="number" class="form-control" id="cgoodsid" name="bookNo" placeholder=""
                                    value="">
                         </div>
                     </div>
@@ -442,7 +446,7 @@
                         <label class="col-sm-2 control-label" for="cgoodsauthor">商品作者</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cgoodsauthor" name="cgoodsauthor" placeholder=""
+                            <input type="text" class="form-control" id="cgoodsauthor" name="author" placeholder=""
                                    value="">
                         </div>
                     </div>
@@ -450,7 +454,7 @@
                         <label class="col-sm-2 control-label" for="cgoodsprice">商品价格</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="cgoodsprice" name="cgoodsprice" placeholder=""
+                            <input type="number" class="form-control" id="cgoodsprice" name="bookPrice" placeholder=""
                                    value="">
                         </div>
                     </div>
@@ -458,7 +462,7 @@
                         <label class="col-sm-2 control-label" for="cgoodsnum">库存数量</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="cgoodsnum" name="cgoodsremain" placeholder=""
+                            <input type="number" class="form-control" id="cgoodsnum" name="bookNum" placeholder=""
                                    value="">
                         </div>
                     </div>
@@ -466,7 +470,7 @@
                         <label class="col-sm-2 control-label" for="cgoodspublish">出版社</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cgoodspublish" name="cgoodspublish"
+                            <input type="text" class="form-control" id="cgoodspublish" name="publishName"
                                    placeholder="" value="">
                         </div>
                     </div>
@@ -475,7 +479,7 @@
                         <label class="col-sm-2 control-label">商品分类</label>
 
                         <div class="col-sm-10">
-                            <select class="form-control" name="cgoodstype" id="cgoodstype">
+                            <select class="form-control" name="type" id="cgoodstype">
                                 <option value="">请选择商品分类</option>
                                 <option id="selectliter" value="literature">文艺</option>
                                 <option id="selectinspir" value="inspiration">励志</option>
@@ -495,12 +499,12 @@
                         <label class="col-sm-2 control-label" for="cgoodsinfo">商品简介</label>
 
                         <div class="col-sm-10">
-                            <textarea class="form-control" cols="5" rows="8" id="cgoodsinfo"></textarea>
+                            <textarea class="form-control" cols="5" rows="8" id="cgoodsinfo" name="descripe"></textarea>
                         </div>
                     </div>
                     <div class="form-group" style="padding-left:200px">
                         <div class="col-sm-10">
-                            <button type="submit" formaction="" class="btn btn-info" style="padding: 5px 20px">提交
+                            <button type="submit" class="btn btn-info" style="padding: 5px 20px">提交
                             </button>
 
                             <button type="reset" class="btn btn-gray" style="padding: 5px 20px;margin-left: 10px">重置
@@ -527,14 +531,14 @@
                 <h4 class="modal-title">提示框</h4>
             </div>
             <div class="modal-body">
-                <form role="form" class="form-horizontal" style="width: 95%;min-width: 250px">
-
+                <form action="sellerBook_deleteBook.action" method="get" role="form" class="form-horizontal" style="width: 95%;min-width: 250px">
+					<input type="hidden" id="dhiddenbookId" name="bookId" value="">
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="dgoodsid">商品ISBN</label>
 
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="dgoodsid" placeholder="" value=""
-                                   disabled="disabled">
+                                   disabled="disabled" name="bookNo">
                         </div>
                     </div>
 
@@ -543,12 +547,12 @@
 
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="dgoodsname" placeholder="" value=""
-                                   disabled="disabled">
+                                   disabled="disabled" name="bookName">
                         </div>
                     </div>
 
                     <span style="margin-left: 50px;">确定删除该条信息吗？</span>
-                    <button type="submit" formaction="" class="btn btn-info" data-dismiss="modal">确定</button>
+                    <button type="submit"  class="btn btn-info" >确定</button>
                 </form>
             </div>
 

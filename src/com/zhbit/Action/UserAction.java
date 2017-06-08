@@ -86,7 +86,7 @@ public class UserAction extends ActionSupport{
 	}
 
 	/*
-	 * 1銆佺敤鎴锋敞鍐�
+	 * 1、用户注册
 	 */
 	public String regist(){
 		if(person.equals("user")){
@@ -134,7 +134,7 @@ public class UserAction extends ActionSupport{
 	
 	
 	/*
-	 * 2銆佺敤鎴风櫥褰�
+	 * 2、用户登录
 	 */
 
 	public String login() {
@@ -147,7 +147,7 @@ public class UserAction extends ActionSupport{
 			if (user1 != null) {
 				ServletActionContext.getRequest().getSession()
 						.setAttribute("user", user1);
-				return SUCCESS;
+				return "user_loginsuccess";
 
 			} 
 		}
@@ -162,7 +162,7 @@ public class UserAction extends ActionSupport{
 			if (s!= null) {
 				ServletActionContext.getRequest().getSession().setAttribute("seller", s);
 			}
-			return SUCCESS;
+			return "seller_loginsuccess";
 		}
 		
 		return INPUT;
@@ -171,7 +171,7 @@ public class UserAction extends ActionSupport{
 	
 	
 	/*
-	 * 3銆佷慨鏀瑰瘑纰�
+	 * 3、修改密碼
 	 */
 	
 	private String newpassword;
@@ -202,7 +202,7 @@ public class UserAction extends ActionSupport{
 	}
 	
 	/*
-	 * 4銆侀�鍑�
+	 * 4、退出
 	 */
 	public String exit(){
 			
@@ -213,7 +213,7 @@ public class UserAction extends ActionSupport{
 		}
 	
 	/*
-	 * 5銆佸繕璁板瘑鐮�
+	 * 5、忘记密码
 	 */
 	
 	@SuppressWarnings("all")
@@ -234,8 +234,8 @@ public class UserAction extends ActionSupport{
 	public String rePassword(){
 		 //int userId = Integer.parseInt(ServletActionContext.getRequest().getParameter("userId"));
 		 User user = (User)ServletActionContext.getRequest().getSession().getAttribute("u");
-		 System.out.println("鏂板瘑鐮侊細"+newpassword);
-		 System.out.println("纭瀵嗙爜锛�"+repassword);
+		 System.out.println("新密码："+newpassword);
+		 System.out.println("确认密码："+repassword);
 		 if(newpassword.equals(repassword)){
 			 userService.updatePwd(user, newpassword);
 				return "rePassword_sucess";

@@ -153,7 +153,7 @@
                                         <th style="width: 100px;text-align: center">金额小计</th>
                                     </tr>
                                     </thead>
-                                    <c:forEach items="${sessionScope.shoppingBook }" var="st">
+                                    <c:forEach items="${sessionScope.checkBook }" var="st">
 		                                    <tbody>
 		                                    <tr>
 		                                        <td>${st.bookNo }</td>
@@ -168,7 +168,7 @@
 	                                    <tr>
 	                                        <td colspan="7" class="text-right">
 	                                            <p class="form-control-static">
-	                                              	  产品合计：<span class="large-bold-red">￥${sessionScope.totalMoney } 元</span>
+	                                              	  产品合计：<span class="large-bold-red">￥${sessionScope.checkMoney } 元</span>
 	                                            </p>
 	                                        </td>
 	                                    </tr>

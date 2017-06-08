@@ -1,6 +1,7 @@
 package com.zhbit.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -112,4 +113,75 @@ public class CarServiceImpl implements CarService {
 		// TODO Auto-generated method stub
 		return carDao.findOne(bookId);
 	}
+
+	@Override
+	public void UpdateNum(int number,int bookId) {
+		// TODO Auto-generated method stub
+		List<Book> shoppingBook = (List<Book>) ServletActionContext.getRequest().getSession().getAttribute("shoppingBook");
+		
+		for (Book book : shoppingBook) {
+			if(book.getBookId()==bookId){
+				book.setBookNum(number);
+			}
+		}
+		
+		ServletActionContext.getRequest().getSession().setAttribute("shoppingBook", shoppingBook);
+		
+		
+		
+	}
+
+	@SuppressWarnings("all")
+	@Override
+	public void jiesuan(int[] carItem) {
+		// TODO Auto-generated method stub
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		List<Book> shoppingBook = (List<Book>) session.getAttribute("shoppingBook");
+		
+		List<Book> checkBook = new ArrayList<Book>();
+		int k=0;
+		for (int i : carItem) {
+			System.out.println("传值i:"+i);
+			for (Book book : shoppingBook) {
+				System.out.println("书的Id:"+book.getBookId());
+				if(i==book.getBookId()){
+					checkBook.add(book);
+					session.setAttribute("checkBook", checkBook);
+				}
+			}
+		}		
+			
+	}		
+	
+	
+	public void checkPrice() {
+		// TODO Auto-generated method stub
+	
+		double price = 0;
+		List<Book> checkBook = (List<Book>)ServletActionContext.getRequest().getSession().getAttribute("checkBook");
+		if(checkBook != null){
+			
+			for(int i=0;i<checkBook.size();i++)
+			{
+				price += checkBook.get(i).getBookPrice() * checkBook.get(i).getBookNum();
+			}
+			
+		}
+		ServletActionContext.getRequest().getSession().setAttribute("checkMoney", price);
+		
+	}
+	
+	
+			
+
+
+
+
+
+	
+	
+	
+	
+	
+	
 }

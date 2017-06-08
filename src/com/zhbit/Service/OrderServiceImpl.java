@@ -28,8 +28,8 @@ public class OrderServiceImpl implements OrderService {
 	public void orderAdd(String address) {
 		// TODO Auto-generated method stub
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		List<Book> shoppingBook = (List<Book>)session.getAttribute("shoppingBook");
-		double totalMoney =(Double)session.getAttribute("totalMoney");
+		List<Book> shoppingBook = (List<Book>)session.getAttribute("checkBook");
+		double totalMoney =(Double)session.getAttribute("checkMoney");
 		User user = (User)session.getAttribute("user");
 		Order order = new Order();
 		order.setAddress(address);

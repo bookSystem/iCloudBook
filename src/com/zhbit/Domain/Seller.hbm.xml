@@ -15,11 +15,10 @@
 		<property name="address" column="address" not-null="true"></property>
 		
 	
-		<!-- 
-		<set name="setOrder">
-			<key column="id"></key>
-			<one-to-many class="com.zhbit.userDomain.Order"/>
-		</set> -->
+		<set name="setBook">
+			<key column="sellerId"></key>
+			<one-to-many class="com.zhbit.Domain.Book"/>
+		</set>
 	</class>
 	
 </hibernate-mapping>

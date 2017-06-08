@@ -37,8 +37,8 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 		// TODO Auto-generated method stub
 
 		List<Book> list = this.getHibernateTemplate().find("from Book order by bookNum asc ");
-		List<Book> list2 = list.subList(0, 1);
-		return list2;
+		//List<Book> list2 = list.subList(0, 1);
+		return list;
 		
 	}
 

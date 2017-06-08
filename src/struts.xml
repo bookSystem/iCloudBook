@@ -6,6 +6,7 @@
 <struts>
 <!-- <constant name="struts.il8n.encoding" value="UTF-8"></constant> -->
 	<package name="default" extends="struts-default " namespace="/">
+		
 		<!-- <interceptors>
 			<interceptor name="loginInterceptor" class="com.zhbit.interceptor.LoginInterceptor"></interceptor>
 		</interceptors> -->
@@ -19,7 +20,8 @@
 			<result name="regist">/loginpage.jsp</result>
 			
 			<!-- 2、用户登录 -->
-			<result name="success">/index.jsp</result>
+			<result name="user_loginsuccess">/index.jsp</result>
+			<result name="seller_loginsuccess">/page/ysscbs/yssc.jsp</result>
 			<result name="input">/loginpage.jsp</result>
 			
 			<!-- 3、修改密码 -->
@@ -66,8 +68,11 @@
 			<result name="CarAdd">/page/shoppingcart.jsp</result>
 			<result name="CarPay">/page/paybook.jsp</result>
 			<result name="CarDelete" type="redirectAction">car_CarList</result>
+			<result name="UpdateNum" type="redirectAction">car_CarList</result>
+			<result name="jiesuan">/page/scconfirmation.jsp</result>
 			<result name="CarList">/page/shoppingcart.jsp</result>
 			<result name="login">/loginpage.jsp</result>
+			
 		</action>
 
 		<action name="order_*" class="orderAction" method="{1}">
@@ -79,6 +84,14 @@
 		<action name="seller_*" class="sellerOrderAction" method="{1}">
 			<result name="getOrder">/page/myorder.jsp</result>
 			<result name="dealOrder" type="redirectAction">seller_getOrder</result>
+		</action>
+		
+		
+		<action name="sellerBook_*" class="sellerBookAction" method="{1}">
+			<result name="showBook">/page/ysscbs/commodity.jsp</result>
+			<result name="addBook">/page/ysscbs/commodity.jsp</result>
+			<result name="updateBook">/page/ysscbs/commodity.jsp</result>
+			<result name="deleteBook">/page/ysscbs/commodity.jsp</result>
 		</action>
 		
 		

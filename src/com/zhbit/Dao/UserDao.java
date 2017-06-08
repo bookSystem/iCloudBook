@@ -1,5 +1,6 @@
 package com.zhbit.Dao;
 
+import com.zhbit.Domain.Admin;
 import com.zhbit.Domain.Seller;
 import com.zhbit.Domain.User;
 
@@ -22,5 +23,7 @@ public interface UserDao {
 	User forgetPwd(User user);
 
 	Seller findSeller(int sellerId);
+
+	Admin login(Admin admin);
 
 }

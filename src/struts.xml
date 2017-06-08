@@ -22,6 +22,7 @@
 			<!-- 2、用户登录 -->
 			<result name="user_loginsuccess">/index.jsp</result>
 			<result name="seller_loginsuccess">/page/ysscbs/yssc.jsp</result>
+			<result name="admin_loginsuccess">/page/ysscbs/admin.jsp</result>
 			<result name="input">/loginpage.jsp</result>
 			
 			<!-- 3、修改密码 -->
@@ -94,6 +95,12 @@
 			<result name="deleteBook">/page/ysscbs/commodity.jsp</result>
 			<result name="input">/page/ysscbs/yssc.jsp</result>
 		</action>
+		
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="showUser">/page/ysscbs/usermanager.jsp</result>
+			<result name="deleteUser">/page/ysscbs/usermanager.jsp</result>
+		</action>
+		
 		
 		
 	</package>

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zhbit.Dao.UserDao;
+import com.zhbit.Domain.Admin;
 import com.zhbit.Domain.Seller;
 import com.zhbit.Domain.User;
 
@@ -66,6 +67,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Seller findSeller(int sellerId) {
 		return userDao.findSeller(sellerId);
+	}
+
+	@Override
+	public Admin login(Admin admin) {
+		// TODO Auto-generated method stub
+		return userDao.login(admin);
 	}
 
 }

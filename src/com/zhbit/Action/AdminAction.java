@@ -26,6 +26,16 @@ public class AdminAction extends ActionSupport{
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
+	
+	private int userId;
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	public String showUser(){
 		PageBean showUser = adminService.showUser(currentPage);
 		ServletActionContext.getRequest().setAttribute("showUser", showUser);
@@ -33,6 +43,7 @@ public class AdminAction extends ActionSupport{
 	}
 	
 	public String deleteUser(){
+		System.out.println(ServletActionContext.getRequest().getParameter("userId"));
 		int userId = Integer.parseInt(ServletActionContext.getRequest().getParameter("userId"));
 		PageBean deleteUser = adminService.deleteBook(userId);
 		ServletActionContext.getRequest().setAttribute("showUser", deleteUser);

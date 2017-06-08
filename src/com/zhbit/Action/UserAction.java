@@ -4,7 +4,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
+import com.zhbit.Domain.Admin;
 import com.zhbit.Domain.Seller;
 import com.zhbit.Domain.User;
 import com.zhbit.Service.UserService;
@@ -163,6 +165,18 @@ public class UserAction extends ActionSupport{
 			if (s!= null) {
 				ServletActionContext.getRequest().setAttribute("seller", s);
 				return "seller_loginsuccess";
+			}	
+		}
+		
+		if(person.equals("admin")){
+			Admin admin = new Admin();
+			admin.setName(name);
+			admin.setPassword(password);
+			
+			Admin a = userService.login(admin);
+			if (a!= null) {
+				ServletActionContext.getRequest().setAttribute("admin", a);
+				return "admin_loginsuccess";
 			}	
 		}
 		

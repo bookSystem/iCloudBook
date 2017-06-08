@@ -3,6 +3,7 @@ create database book;
 use book;
 
 
+select * from book_user;
 select * from t_user;
 delete from t_user;
 
@@ -17,5 +18,5 @@ delete from t_order;
 select * from t_orderItem;
 delete from t_orderItem;
 
-select * from book_Admin;
-
+select * from t_Admin;
+insert into t_Admin values('admin01','admin01');  

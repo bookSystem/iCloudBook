@@ -28,6 +28,7 @@
 		<property name="javax.persistence.validation.mode">none</property>  
 		<mapping resource="com/zhbit/Domain/User.hbm.xml"/>
 		<mapping resource="com/zhbit/Domain/Seller.hbm.xml"/>
+		<mapping resource="com/zhbit/Domain/Admin.hbm.xml"/>
 		<mapping resource="com/zhbit/Domain/Book.hbm.xml"/>
 		<mapping resource="com/zhbit/Domain/Order.hbm.xml"/>
 		<mapping resource="com/zhbit/Domain/OrderItem.hbm.xml"/>

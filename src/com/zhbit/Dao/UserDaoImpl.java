@@ -10,6 +10,7 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.zhbit.Domain.Admin;
 import com.zhbit.Domain.Seller;
 import com.zhbit.Domain.User;
 
@@ -110,6 +111,20 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		List<Seller> list = this.getHibernateTemplate().find("from Seller where sellerId=?",sellerId);
 		Seller s = list.get(0);
 		return s;
+	}
+
+	@Override
+	public Admin login(Admin admin) {
+		List<Admin> list = null;
+		Query query = session.getCurrentSession().createQuery("from Admin a where a.name=? and a.password=?");
+		query.setString(0, admin.getName());
+		query.setString(1, admin.getPassword());
+		list = query.list();
+		if(list != null && list.size()>0){
+			Admin ad = list.get(0);
+			return ad;
+		}
+		return null;
 	}
 
 }

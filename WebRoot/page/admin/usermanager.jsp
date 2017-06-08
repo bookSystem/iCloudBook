@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: Yejunjie
@@ -6,7 +7,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -42,11 +42,6 @@
 
 </head>
 <body class="page-body skin-navy">
-<%
-	if(request.getAttribute("showUser")==null){
-		response.sendRedirect("admin_showUser.action"); 
-	}
-%>
 
 
 <div class="page-container">
@@ -74,6 +69,32 @@
             </header>
 
             <ul id="main-menu" class="main-menu">
+
+                <li>
+
+                    <a href="#">
+                        <i class="linecons-database"></i>
+                        <span class="title">订单管理</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="goodstable1.jsp">
+                                <span class="title">订单表管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="goodstable2.jsp">
+                                <span class="title">订单项管理</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="commodity.jsp">
+                        <i class="linecons-star"></i>
+                        <span class="title">商品管理</span>
+                    </a>
+                </li>
                 <li>
                     <a href="usermanager.jsp">
                         <i class="linecons-user"></i>
@@ -105,6 +126,79 @@
                 </ol>
             </div>
         </div>
+
+        <!-- Basic Setup -->
+        <div class="panel panel-default collapsed">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加用户</h3>
+                <div class="panel-options">
+
+                    <a href="#" data-toggle="panel">
+                        <span class="collapse-icon">&ndash;</span>
+                        <span class="expand-icon">+</span>
+                    </a>
+
+                </div>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="newusername">用户名</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="newusername" placeholder="" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="newuserpwd">密码</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="newuserpwd" placeholder="" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="newuserpwd2">确认密码</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="newuserpwd2" placeholder="" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="newusermail">邮箱</label>
+
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="newusermail" placeholder="" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="newuserphone">电话</label>
+
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="newuserphone" placeholder="" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="newuseradd">地址</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="newuseradd" placeholder="" value="">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" style="padding-left: 300px">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-info" style="padding: 5px 20px">提交</button>
+
+                            <button type="reset" class="btn btn-gray" style="padding: 5px 20px;margin-left: 10px">重置
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">用户信息管理</h3>
@@ -135,41 +229,46 @@
                     </thead>
 
                     <tbody>
-						 <c:forEach items="${showUser.list}" var="showUser">
+
 
                     <tr>
                         <td>
                             <%--内容超出范围会显示--%>
                             <div class="tdcss" style="width: 30px">
-                                ${ showUser.userId}
+                                1
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 70px">
-                                ${ showUser.name}
+                                johnson
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 90px">
-                                ${ showUser.password}
+                                ********
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 70px">
-                                ${ showUser.email}
+                                123456@qq.com
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:100px;">
-                                ${ showUser.telnum}
+                                13166778899
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:120px;">
-                              ${ showUser.address}
+                                珠海市香洲区金凤路
                             </div>
                         </td>
                         <td width="120px" align="center">
+
+                            <a onclick="editInfo(this);"
+                               class="btn btn-secondary btn-sm btn-icon icon-left">
+                                修改
+                            </a>
 
                             <a onclick="deleteInfo(this)"
                                class="btn btn-danger btn-sm btn-icon icon-left">
@@ -179,7 +278,7 @@
                         </td>
                     </tr>
 
-						</c:forEach>
+
                     </tbody>
                 </table>
 
@@ -214,6 +313,19 @@
 </div>
 <%--模态框调用函数--%>
 <script>
+    function editInfo(obj) {
+//        修改函数
+        var divs = $(obj).parent().parent().children().find('div');
+
+//        $('#cgoodsid').val(divs.eq(0).text().trim());
+        $('#cgoodsname').val(divs.eq(1).text().trim());
+        $('#cuserpwd').val(divs.eq(2).text().trim());
+        $('#cusermail').val(divs.eq(3).text().trim());
+        $('#cuserphone').val(divs.eq(4).text().trim());
+        $('#cuseradd').val(divs.eq(5).text().trim());
+
+        $('#modal-6').modal('show');
+    }
 
     function deleteInfo(obj) {
 //        删除函数
@@ -227,6 +339,77 @@
 </script>
 <%----%>
 
+<%--修改模态框开始--%>
+<div class="modal fade" id="modal-6">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改用户信息</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <form role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="cusername">用户名</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cusername" name="cusername" placeholder=""
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="cuserpwd">密码</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="cuserpwd" name="cuserpwd" placeholder=""
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="cusermail">邮箱</label>
+
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="cusermail" name="cusermail" placeholder=""
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="cuserphone">电话</label>
+
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="cuserphone" name="cuserphone" placeholder=""
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="cuseradd">地址</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="cuseradd" name="cuseradd" placeholder=""
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="form-group" style="padding-left:200px">
+                        <div class="col-sm-10">
+                            <button type="submit" formaction="" class="btn btn-info" style="padding: 5px 20px">提交
+                            </button>
+
+                            <button type="reset" class="btn btn-gray" style="padding: 5px 20px;margin-left: 10px">重置
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<%--修改模态框结束--%>
 
 <%--删除模态框结束--%>
 <div class="modal fade" id="modal-4" data-backdrop="static">
@@ -239,8 +422,8 @@
                 <h4 class="modal-title">提示框</h4>
             </div>
             <div class="modal-body">
-                <form action="admin_deleteUser.action" method="post" role="form" class="form-horizontal" style="width: 95%;min-width: 250px" >
-					 <input type="hidden" id="duserid" name="userId" value="">
+                <form role="form" class="form-horizontal" style="width: 95%;min-width: 250px">
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="duserid">用户ID</label>
 
@@ -253,13 +436,13 @@
                         <label class="col-sm-2 control-label" for="dusername">用户名</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="dusername" name="userName" placeholder=""
+                            <input type="text" class="form-control" id="dusername" name="dusername" placeholder=""
                                    value="" disabled="disabled">
                         </div>
                     </div>
 
                     <span style="margin-left: 50px;">确定删除该条信息吗？</span>
-                    <button type="submit" class="btn btn-info" >确定</button>
+                    <button type="submit" formaction="" class="btn btn-info" data-dismiss="modal">确定</button>
                 </form>
             </div>
 
@@ -294,3 +477,4 @@
 
 </body>
 </html>
+

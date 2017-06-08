@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<!-- <constant name="struts.il8n.encoding" value="UTF-8"></constant> -->
+	<package name="default" extends="struts-default " namespace="/">
+		
+		<!-- <interceptors>
+			<interceptor name="loginInterceptor" class="com.zhbit.interceptor.LoginInterceptor"></interceptor>
+		</interceptors> -->
+		<!-- <global-results>
+			<result name="input">/loginpage.jsp</result>
+		</global-results> -->
+		<action name="user_*" class="userAction" method="{1}">
+		
+			<!-- 1、用户注册 -->
+			<result name="regist_sucess">/index.jsp</result>
+			<result name="regist">/loginpage.jsp</result>
+			
+			<!-- 2、用户登录 -->
+			<result name="user_loginsuccess">/index.jsp</result>
+			<result name="seller_loginsuccess">/page/ysscbs/yssc.jsp</result>
+			<result name="input">/loginpage.jsp</result>
+			
+			<!-- 3、修改密码 -->
+			
+			<result name="update_sucess">/loginpage.jsp</result>
+			<result name="update">/page/modifypwd.jsp</result>
+			
+			<!-- 4、退出 -->
+			
+			<result name="exit">/loginpage.jsp</result>
+			
+			<!-- 5、找回密码 -->
+			
+			<result name="rePassword">/page/resetpwd.jsp</result>
+			<result name="forgetPwd">/page/forgetpwd.jsp</result>
+			<result name="rePassword_sucess">/loginpage.jsp</result>
+			<result name="rePassword_fail">/page/resetpwd.jsp</result>
+			
+		</action>
+		
+		
+		<action name="book_*" class="bookAction" method="{1}">
+			<result name="findLastBook">/index.jsp</result>
+			<result name="literatureBookListPage">/page/nliterature.jsp</result>
+			<result name="inspirationBookListPage">/page/ninspiration.jsp</result>
+			<result name="educationBookListPage">/page/neducation.jsp</result>
+			<result name="technologyBookListPage">/page/ntechnology.jsp</result>
+			<result name="BookItem">/page/nbookdisplay.jsp</result>
+		</action>
+	</package>
+	
+	
+	
+	
+	<package name="interceptorpack" extends="struts-default " namespace="/">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.zhbit.interceptor.LoginInterceptor"></interceptor>
+		</interceptors>
+		<action name="car_*" class="carAction" method="{1}">
+			<interceptor-ref name="loginInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="CarAdd">/page/shoppingcart.jsp</result>
+			<result name="CarPay">/page/paybook.jsp</result>
+			<result name="CarDelete" type="redirectAction">car_CarList</result>
+			<result name="UpdateNum" type="redirectAction">car_CarList</result>
+			<result name="jiesuan">/page/scconfirmation.jsp</result>
+			<result name="CarList">/page/shoppingcart.jsp</result>
+			<result name="login">/loginpage.jsp</result>
+			
+		</action>
+
+		<action name="order_*" class="orderAction" method="{1}">
+			<result name="orderAdd" type="redirectAction">order_myOrderList</result>
+			<result name="myOrderList">/page/myorder.jsp</result>
+			<result name="firmOrder" type="redirectAction">order_myOrderList</result>
+		</action>
+		
+		<action name="seller_*" class="sellerOrderAction" method="{1}">
+			<result name="getOrder">/page/ysscbs/goodstable1.jsp</result>
+			<result name="dealOrder" type="redirectAction">seller_getOrder</result>
+		</action>
+		
+		
+		<action name="sellerBook_*" class="sellerBookAction" method="{1}">
+			<result name="showBook">/page/ysscbs/commodity.jsp</result>
+			<result name="addBook">/page/ysscbs/commodity.jsp</result>
+			<result name="updateBook">/page/ysscbs/commodity.jsp</result>
+			<result name="deleteBook">/page/ysscbs/commodity.jsp</result>
+			<result name="input">/page/ysscbs/yssc.jsp</result>
+		</action>
+		
+		
+	</package>
+	
+	
+	
+	
+</struts>

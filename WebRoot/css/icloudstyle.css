@@ -4,7 +4,7 @@ body {
 }
 
 .clear {
-    /*清除上下div浮动*/
+    /*娓呴櫎涓婁笅div娴姩*/
     clear: both;
 }
 
@@ -14,7 +14,7 @@ a {
 
 /*header css*/
 .greyheader {
-    /*顶部灰色导航条*/
+    /*椤堕儴鐏拌壊瀵艰埅鏉�/
     width: 100%;
     min-width: 1050px;
     height: 28px;
@@ -47,7 +47,7 @@ nav {
     height: auto;
     /*    background-color: #cccccc;*/
     box-shadow: 0px 1px 3px rgba(51, 51, 51, 0.7);
-    /*左右 上下 模糊*/
+    /*宸﹀彸 涓婁笅 妯＄硦*/
 }
 
 #navdiv {
@@ -103,6 +103,12 @@ nav img {
     /*transition-delay: 100ms;*/
 }
 
++#navdiv ul li .nav_active {
+ +    color: #0099cc;
+ +    border-bottom: 2px solid #0099cc;
+ +    padding-bottom: 3px;
+ +}
+ +
 #navdiv ul li:hover .navspace {
     display: block;
 }

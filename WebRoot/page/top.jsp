@@ -86,9 +86,9 @@ out.print("用户名:"+session.getAttribute("seller"));
         <div align="center"><img id="logopic" src="${pageContext.request.contextPath}/img/logo300x100.png"></div>
         <div align="center" id="navdiv">
             <ul id="navigation">
-                <li><a href="book_findLastBook.action" style="color: #0099cc;border-bottom: 2px solid #0099cc;padding-bottom: 3px;">首页</a></li>
+               	<li><a href="book_findLastBook.action" target="_self" class="nav_active">首页</a></li>
                 <li><a href="book_bookListPage.action?currentPage=1&type=literature" target="_self">文艺</a></li>
-                <li><a href="book_bookListPage.action?currentPage=1&type=inspiration" style="color: #0099cc;border-bottom: 2px solid #0099cc;padding-bottom: 3px;">励志</a></li>
+                <li><a href="book_bookListPage.action?currentPage=1&type=inspiration" target="_self">励志</a></li>
                 <li><a href="book_bookListPage.action?currentPage=1&type=education" target="_self">教育</a></li>
                 <li><a href="book_bookListPage.action?currentPage=1&type=technology" target="_self">科技</a></li>
             </ul>

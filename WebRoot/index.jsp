@@ -151,7 +151,7 @@
     </div>
     <div class="clear"></div>
     <div class="t2container" align="center" style="height: 418px">
-    	<c:forEach items="${minNumBook }" var="minNumBook" varStatus="status" begin="1" end="1">
+    	<c:forEach items="${minNumBook }" var="minNumBook" varStatus="status" begin="0" end="1">
 	        <a href="book_BookItem.action?bookId=${minNumBook.bookId }">
 	            <div class="t" style="width: 408px;height: 418px;float: left;clear: right;">
 	                <div style="width: 408px;height: 368px;padding: 10px 0;overflow: hidden">

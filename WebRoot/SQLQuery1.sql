@@ -7,6 +7,7 @@ select * from t_user;
 delete from t_user;
 
 select * from t_seller;
+delete from t_seller where sellerId=2;
 
 select * from t_book;
 delete from t_book;

@@ -67,7 +67,7 @@
 
                 <!-- logo -->
                 <div class="logo">
-                    <a href="yssc.jsp"><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
+                    <a href=""><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
                 </div>
 
                 <div class="mobile-menu-toggle visible-xs">
@@ -123,7 +123,7 @@
 
                 <ol class="breadcrumb bc-1">
                     <li>
-                        <a href="yssc.jsp" target="_self"><i class="fa-home"></i>主页</a>
+                        <a href="${pageContext.request.contextPath}/page/ysscbs/yssc.jsp?sellerId=${requestScope.sId}" target="_self"><i class="fa-home"></i>主页</a>
                     </li>
                     <li>
                         <a disabled="disabled">商品管理</a>

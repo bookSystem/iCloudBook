@@ -87,6 +87,14 @@
 			<result name="dealOrder">/page/ysscbs/goodstable1.jsp</result>
 		</action>
 		
+		<action name="sellerperson_*" class="sellerAction" method="{1}">
+			<result name="showSeller">/page/ysscbs/personalinfo.jsp</result>
+			<result name="findSeller">/page/ysscbs/yssc.jsp</result>
+			<result name="updateSeller">/page/ysscbs/personalinfo.jsp</result>
+		</action>
+		
+
+		
 		
 		<action name="sellerBook_*" class="sellerBookAction" method="{1}">
 			<result name="showBook">/page/ysscbs/commodity.jsp</result>

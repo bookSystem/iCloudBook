@@ -30,6 +30,7 @@
 	<import resource="classpath:com/zhbit/Config/book.xml"/>
 	<import resource="classpath:com/zhbit/Config/car.xml"/>
 	<import resource="classpath:com/zhbit/Config/order.xml"/>
+	<import resource="classpath:com/zhbit/Config/seller.xml"/>
 	<import resource="classpath:com/zhbit/Config/sellerOrder.xml"/>
 	<import resource="classpath:com/zhbit/Config/sellerBook.xml"/>
 	<import resource="classpath:com/zhbit/Config/admin.xml"/>

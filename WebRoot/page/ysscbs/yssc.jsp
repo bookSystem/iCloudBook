@@ -34,6 +34,15 @@
 
 </head>
 <body class="page-body skin-navy">
+<%
+	if(request.getAttribute("seller")==null)
+	{
+		if(request.getParameter("sellerId") != null){
+			String sellerId = request.getParameter("sellerId");
+			response.sendRedirect("sellerperson_findSeller.action?sellerId=" +sellerId);
+		}
+	}
+%>
 
 <div class="page-container">
 
@@ -108,7 +117,7 @@
 
                     <ul class="dropdown-menu user-profile-menu list-unstyled">
                         <li>
-                            <a href="personalinfo.jsp">
+                            <a href="${pageContext.request.contextPath}/page/ysscbs/personalinfo.jsp?sellerId=${requestScope.seller.getSellerId()}">
                                 <i class="fa-user"></i>
                                 个人资料
                             </a>

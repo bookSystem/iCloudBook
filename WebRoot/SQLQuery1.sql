@@ -3,7 +3,6 @@ create database book;
 use book;
 
 
-select * from book_user;
 select * from t_user;
 delete from t_user;
 

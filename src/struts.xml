@@ -90,9 +90,9 @@
 		
 		<action name="sellerBook_*" class="sellerBookAction" method="{1}">
 			<result name="showBook">/page/ysscbs/commodity.jsp</result>
-			<result name="addBook">/page/ysscbs/commodity.jsp</result>
-			<result name="updateBook">/page/ysscbs/commodity.jsp</result>
-			<result name="deleteBook">/page/ysscbs/commodity.jsp</result>
+			<result name="addBook">/page/ysscbs/yssc.jsp</result>
+			<result name="updateBook">/page/ysscbs/yssc.jsp</result>
+			<result name="deleteBook">/page/ysscbs/yssc.jsp</result>
 			<result name="input">/page/ysscbs/yssc.jsp</result>
 		</action>
 		

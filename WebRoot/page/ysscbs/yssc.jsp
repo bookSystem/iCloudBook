@@ -67,11 +67,6 @@
                                 <span class="title">订单表管理</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="goodstable2.jsp">
-                                <span class="title">订单项管理</span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li>

@@ -218,6 +218,7 @@
     function deleteInfo(obj) {
 //        删除函数
         var divs = $(obj).parent().parent().children().find('div');
+        $('#userid').val(divs.eq(0).text().trim());
         $('#duserid').val(divs.eq(0).text().trim());
         $('#dusername').val(divs.eq(1).text().trim());
 
@@ -240,7 +241,7 @@
             </div>
             <div class="modal-body">
                 <form action="admin_deleteUser.action" method="post" role="form" class="form-horizontal" style="width: 95%;min-width: 250px" >
-					 <input type="hidden" id="duserid" name="userId" value="">
+					 <input type="hidden" id="userid" name="userId" value="">
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="duserid">用户ID</label>
 

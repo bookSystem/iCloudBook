@@ -95,11 +95,6 @@
                                 <span class="title">订单表管理</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="goodstable2.jsp">
-                                <span class="title">订单项管理</span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -130,9 +125,6 @@
                     </li>
                     <li>
                         <a disabled="disabled">订单管理</a>
-                    </li>
-                    <li class="active">
-                        <strong>订单表管理</strong>
                     </li>
                 </ol>
 
@@ -230,7 +222,7 @@
 						</c:if>
 						<c:if test="${order.isDeal eq 1}">
                             <a onclick=""
-                               class="class="btn btn-secondary btn-sm btn-icon icon-left">
+                               class="btn btn-secondary btn-sm btn-icon icon-left">
                                 完成发货
                             </a>
 						</c:if>
@@ -242,7 +234,7 @@
 						</c:if>
 						<c:if test="${order.isDeal eq 3}">
                             <a onclick=""
-                               class="btn btn-secondary btn-sm btn-icon icon-left">
+                               class="btn btn-danger btn-sm btn-icon icon-left">
                                 已取消
                             </a>
 						</c:if>

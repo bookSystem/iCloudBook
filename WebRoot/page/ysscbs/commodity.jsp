@@ -67,7 +67,7 @@
 
                 <!-- logo -->
                 <div class="logo">
-                    <a href="yssc.jsp"><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
+                    <a href=""><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
                 </div>
 
                 <div class="mobile-menu-toggle visible-xs">
@@ -91,29 +91,17 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="goodstable1.jsp">
+                            <a href="goodstable1.jsp?sellerId=${requestScope.sId}">
                                 <span class="title">订单表管理</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="goodstable2.jsp">
-                                <span class="title">订单项管理</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="commodity.jsp">
+                    <a href="commodity.jsp?sellerId=${requestScope.sId}">
                         <i class="linecons-star"></i>
                         <span class="title">商品管理</span>
                     </a>
-                </li>
-                <li>
-                    <a href="usermanager.jsp">
-                        <i class="linecons-user"></i>
-                        <span class="title">用户管理</span>
-                    </a>
-
                 </li>
             </ul>
 
@@ -135,7 +123,7 @@
 
                 <ol class="breadcrumb bc-1">
                     <li>
-                        <a href="yssc.jsp" target="_self"><i class="fa-home"></i>主页</a>
+                        <a href="${pageContext.request.contextPath}/page/ysscbs/yssc.jsp?sellerId=${requestScope.sId}" target="_self"><i class="fa-home"></i>主页</a>
                     </li>
                     <li>
                         <a disabled="disabled">商品管理</a>

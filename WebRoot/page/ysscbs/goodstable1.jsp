@@ -44,7 +44,14 @@
 <%
 	if(request.getAttribute("orderList")==null)
 	{
-		response.sendRedirect("seller_getOrder.action?currentPage=1"); 
+		if(request.getParameter("sellerId") != null){
+			String sellerId = request.getParameter("sellerId");
+			response.sendRedirect("seller_getOrder.action?sellerId=" +sellerId); 
+		}
+		else{
+			String sellerId = (String)request.getAttribute("sId");
+			response.sendRedirect("seller_getOrder.action?sellerId" +sellerId); 
+		}
 	}
 %>
 
@@ -58,7 +65,7 @@
 
                 <!-- logo -->
                 <div class="logo">
-                    <a href="yssc.jsp"><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
+                    <a href=""><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
                 </div>
 
                 <div class="mobile-menu-toggle visible-xs">
@@ -84,29 +91,17 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="goodstable1.jsp">
+                            <a href="goodstable1.jsp?sellerId=${requestScope.sId}">
                                 <span class="title">订单表管理</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="goodstable2.jsp">
-                                <span class="title">订单项管理</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="commodity.jsp">
+                    <a href="commodity.jsp?sellerId=${requestScope.sId}">
                         <i class="linecons-star"></i>
                         <span class="title">商品管理</span>
                     </a>
-                </li>
-                <li>
-                    <a href="usermanager.jsp">
-                        <i class="linecons-user"></i>
-                        <span class="title">用户管理</span>
-                    </a>
-
                 </li>
             </ul>
 
@@ -126,13 +121,10 @@
 
                 <ol class="breadcrumb bc-1">
                     <li>
-                        <a href="yssc.jsp" target="_self"><i class="fa-home"></i>主页</a>
+                        <a href="yssc.jsp?sellerId=${requestScope.sId}" target="_self"><i class="fa-home"></i>主页</a>
                     </li>
                     <li>
                         <a disabled="disabled">订单管理</a>
-                    </li>
-                    <li class="active">
-                        <strong>订单表管理</strong>
                     </li>
                 </ol>
 
@@ -178,7 +170,7 @@
                         <td>
                             <%--内容超出范围会显示--%>
                             <div class="tdcss" style="width: 30px">
-                                ${order.getOrderId() }
+                                ${order.orderId }
                             </div>
                         </td>
                         <td>
@@ -242,7 +234,7 @@
 						</c:if>
 						<c:if test="${order.isDeal eq 3}">
                             <a onclick=""
-                               class="btn btn-secondary btn-sm btn-icon icon-left">
+                               class="btn btn-danger btn-sm btn-icon icon-left">
                                 已取消
                             </a>
 						</c:if>
@@ -332,6 +324,7 @@
 
                 <form action="seller_dealOrder.action" role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
                    <input type="hidden" id="corderid" name="orderId" value="">
+                    <input type="hidden" name="sellerId" value=${requestScope.sId}>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="corderid">订单编号</label>
 

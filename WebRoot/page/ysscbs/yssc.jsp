@@ -34,6 +34,15 @@
 
 </head>
 <body class="page-body skin-navy">
+<%
+	if(request.getAttribute("seller")==null)
+	{
+		if(request.getParameter("sellerId") != null){
+			String sellerId = request.getParameter("sellerId");
+			response.sendRedirect("sellerperson_findSeller.action?sellerId=" +sellerId);
+		}
+	}
+%>
 
 <div class="page-container">
 
@@ -61,13 +70,10 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="${pageContext.request.contextPath}/page/ysscbs/goodstable1.jsp">
+                        <c:if test="${seller!=null }"> 
+                            <a href="${pageContext.request.contextPath}/page/ysscbs/goodstable1.jsp?sellerId=${requestScope.seller.getSellerId()}&currentPage=1">
+                            </c:if>
                                 <span class="title">订单表管理</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="goodstable2.jsp">
-                                <span class="title">订单项管理</span>
                             </a>
                         </li>
                     </ul>
@@ -79,13 +85,6 @@
                         <i class="linecons-star"></i>
                         <span class="title">商品管理</span>
                     </a>
-                </li>
-                <li>
-                    <a href="usermanager.jsp">
-                        <i class="linecons-user"></i>
-                        <span class="title">用户管理</span>
-                    </a>
-
                 </li>
             </ul>
 
@@ -118,7 +117,7 @@
 
                     <ul class="dropdown-menu user-profile-menu list-unstyled">
                         <li>
-                            <a href="personalinfo.jsp">
+                            <a href="${pageContext.request.contextPath}/page/ysscbs/personalinfo.jsp?sellerId=${requestScope.seller.getSellerId()}">
                                 <i class="fa-user"></i>
                                 个人资料
                             </a>

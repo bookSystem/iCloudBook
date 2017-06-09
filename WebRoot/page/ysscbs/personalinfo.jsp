@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -33,6 +34,20 @@
 
 </head>
 <body class="page-body skin-navy">
+<%
+	if(request.getAttribute("showSeller")==null)
+	{
+		if(request.getParameter("sellerId") != null){
+			String sellerId = request.getParameter("sellerId");
+			response.sendRedirect("sellerperson_showSeller.action?sellerId=" +sellerId); 
+		}
+		else{
+			String sellerId = (String)request.getAttribute("sId");
+			response.sendRedirect("sellerperson_showSeller.action?sellerId=" +sellerId); 
+		}
+		
+	}
+%>
 
 <div class="page-container">
 
@@ -42,7 +57,7 @@
 
                 <!-- logo -->
                 <div class="logo">
-                    <a href="yssc.jsp"><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
+                    <a href=""><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
                 </div>
             </header>
 
@@ -54,27 +69,16 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="goodstable1.jsp">
+                            <a href="goodstable1.jsp?sellerId=${requestScope.sId}">
                                 <span class="title">订单表管理</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="goodstable2.jsp">
-                                <span class="title">订单项管理</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="commodity.jsp">
+                    <a href="commodity.jsp?sellerId=${requestScope.sId}">
                         <i class="linecons-star"></i>
                         <span class="title">商品管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="usermanager.jsp">
-                        <i class="linecons-user"></i>
-                        <span class="title">用户管理</span>
                     </a>
                 </li>
             </ul>
@@ -91,7 +95,9 @@
                              width="28"/>
                         <span>
                             <%--这里是登录用户的账户名--%>
-								Johnson
+								<c:if test="${seller!=null }">
+				  					${requestScope.seller.getName()}
+				  				</c:if>
 								<i class="fa-angle-down"></i>
 							</span>
                     </a>
@@ -121,13 +127,15 @@
                 <h3 class="panel-title">修改个人信息页</h3>
             </div>
             <div class="panel-body">
-                <form role="form" class="form-horizontal" style="width: 60%;min-width: 500px" action="">
+                <form action="sellerperson_updateSeller.action" role="form" class="form-horizontal" style="width: 60%;min-width: 500px" >
+                <c:forEach items="${showSeller}" var="seller">
+                <input type="hidden" name="sellerId" value=${seller.sellerId }>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="perusername">用户名</label>
 
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="perusername" name="perusername" placeholder=""
-                                   value=""
+                                   value=${seller.name }
                                    disabled="disabled">
                         </div>
                     </div>
@@ -136,12 +144,12 @@
 
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="peruserpwd" name="peruserpwd" placeholder=""
-                                   value=""
+                                   value=${seller.password }
                                    disabled="disabled">
 
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="changepwd">
+                                    <input type="checkbox" id="changepwd" >
                                     修改密码
                                 </label>
                                 <script>
@@ -165,24 +173,24 @@
                         <label class="col-sm-2 control-label" for="perusermail">邮箱</label>
 
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="perusermail" name="perusermail" placeholder=""
-                                   value="">
+                            <input type="email" class="form-control" id="perusermail" name="email" placeholder=""
+                                   value="${seller.email }">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="peruserphone">电话</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="peruserphone" name="peruserphone"
-                                   placeholder="" value="">
+                            <input type="number" class="form-control" id="peruserphone" name="telnum"
+                                   placeholder="" value=${seller.telnum }>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="peruseradd">地址</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="peruseradd" name="peruseradd" placeholder=""
-                                   value="">
+                            <input type="text" class="form-control" id="peruseradd" name="address" placeholder=""
+                                   value=${seller.address }>
                         </div>
                     </div>
 
@@ -193,6 +201,7 @@
 
                         </div>
                     </div>
+                    </c:forEach>
                 </form>
             </div>
         </div>

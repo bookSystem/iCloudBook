@@ -1,25 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Yejunjie
-  Date: 2017/5/10
-  Time: 23:49
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-	<head>
-	    <title>云书商城-正品书店，品类齐全，价格优惠！</title>
-	    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/yunlogo.ico" type="image/x-icon"/>
-	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/reset.css"/>
-	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
-	    <link href="${pageContext.request.contextPath}/css/homeindex.css" rel="stylesheet" type="text/css"/>
-	    <script type="text/javascript" src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js"></script>
-	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/icloudstyle.css"/>
-	    <script type="text/javascript" src="${pageContext.request.contextPath}/javascript/navspace.js"></script>
-	</head>
-
-<jsp:include page="page/top.jsp"></jsp:include>
 
 <% 
 		  if(request.getAttribute("T_flag")==null) 

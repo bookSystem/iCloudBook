@@ -17,6 +17,14 @@ public class SellerOrderAction extends ActionSupport {
 	@Resource
 	private SellerOrderService sellerOrderService;
 	
+	private int sellerId;
+	public int getSellerId() {
+		return sellerId;
+	}
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
+	}
+	
 	
 	private int orderId;
 	public int getOrderId() {
@@ -39,7 +47,10 @@ public class SellerOrderAction extends ActionSupport {
 	 * 鍗栧璁㈠崟鏌ヨ
 	 */
 	public String getOrder(){
-		PageBean orderList = (PageBean) sellerOrderService.getOrder(currentPage);	
+		PageBean orderList = (PageBean) sellerOrderService.getOrder(currentPage);
+		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
+		System.out.println(sellerId);
+		ServletActionContext.getRequest().setAttribute("sId",sellerId);
 		ServletActionContext.getRequest().setAttribute("orderList",orderList);		
 		return "getOrder";
 	}

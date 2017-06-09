@@ -205,7 +205,7 @@ public class SellerBookAction extends ActionSupport {
 	}
 	
 	/*
-	 * 2銆佷慨鏀瑰浘涔�
+	 * 2銆佷慨鏀瑰浘涔
 	 */
 
 	public String updateBook(){

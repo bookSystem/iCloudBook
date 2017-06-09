@@ -61,7 +61,9 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="${pageContext.request.contextPath}/page/ysscbs/goodstable1.jsp">
+                        <c:if test="${seller!=null }"> 
+                            <a href="${pageContext.request.contextPath}/page/ysscbs/goodstable1.jsp?sellerId=${requestScope.seller.getSellerId()}&currentPage=1">
+                            </c:if>
                                 <span class="title">订单表管理</span>
                             </a>
                         </li>
@@ -79,13 +81,6 @@
                         <i class="linecons-star"></i>
                         <span class="title">商品管理</span>
                     </a>
-                </li>
-                <li>
-                    <a href="usermanager.jsp">
-                        <i class="linecons-user"></i>
-                        <span class="title">用户管理</span>
-                    </a>
-
                 </li>
             </ul>
 

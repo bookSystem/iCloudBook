@@ -44,7 +44,14 @@
 <%
 	if(request.getAttribute("orderList")==null)
 	{
-		response.sendRedirect("seller_getOrder.action?currentPage=1"); 
+		if(request.getParameter("sellerId") != null){
+			String sellerId = request.getParameter("sellerId");
+			response.sendRedirect("seller_getOrder.action?sellerId=" +sellerId); 
+		}
+		else{
+			String sellerId = (String)request.getAttribute("sId");
+			response.sendRedirect("seller_getOrder.action?sellerId" +sellerId); 
+		}
 	}
 %>
 
@@ -84,7 +91,7 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="goodstable1.jsp">
+                            <a href="goodstable1.jsp?sellerId=${requestScope.sId}">
                                 <span class="title">订单表管理</span>
                             </a>
                         </li>
@@ -96,17 +103,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="commodity.jsp">
+                    <a href="commodity.jsp?sellerId=${requestScope.sId}">
                         <i class="linecons-star"></i>
                         <span class="title">商品管理</span>
                     </a>
-                </li>
-                <li>
-                    <a href="usermanager.jsp">
-                        <i class="linecons-user"></i>
-                        <span class="title">用户管理</span>
-                    </a>
-
                 </li>
             </ul>
 

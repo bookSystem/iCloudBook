@@ -61,6 +61,9 @@ public class SellerOrderAction extends ActionSupport {
 	
 	public String dealOrder(){
 		int orderId = Integer.parseInt(ServletActionContext.getRequest().getParameter("orderId"));
+		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
+		System.out.println(sellerId);
+		ServletActionContext.getRequest().setAttribute("sId",sellerId);
 		Order order = sellerOrderService.findOrder(orderId);
 		sellerOrderService.dealOrder(order);
 		return "dealOrder";

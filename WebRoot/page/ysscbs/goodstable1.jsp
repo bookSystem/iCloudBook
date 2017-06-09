@@ -178,7 +178,7 @@
                         <td>
                             <%--内容超出范围会显示--%>
                             <div class="tdcss" style="width: 30px">
-                                ${order.getOrderId() }
+                                ${order.orderId }
                             </div>
                         </td>
                         <td>
@@ -230,7 +230,7 @@
 						</c:if>
 						<c:if test="${order.isDeal eq 1}">
                             <a onclick=""
-                               class="btn btn-secondary btn-sm btn-icon icon-left">
+                               class="class="btn btn-secondary btn-sm btn-icon icon-left">
                                 完成发货
                             </a>
 						</c:if>
@@ -332,6 +332,7 @@
 
                 <form action="seller_dealOrder.action" role="form" class="form-horizontal" style="width: 50%;min-width: 500px">
                    <input type="hidden" id="corderid" name="orderId" value="">
+                    <input type="hidden" name="sellerId" value=${requestScope.sId}>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="corderid">订单编号</label>
 

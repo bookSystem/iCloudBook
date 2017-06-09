@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zhbit.Domain.Order" table="t_order">
+		<id name="orderId">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="orderNumber" column="orderNumber" not-null="true"></property>
+		<property name="orderTime" column="orderTime" not-null="true"></property>
+		<property name="total" column="total" not-null="true"></property>
+		<property name="isDeal" column="isDeal" not-null="true"></property>
+		<property name="address" column="address" not-null="true"></property>
+		<many-to-one name="user" column="userId" class="com.zhbit.Domain.User"></many-to-one>
+		<set name="setOrderItems" table="t_orderItem" inverse="true" lazy="false" cascade="all">
+			<key column="orderId"></key>
+			<one-to-many class="com.zhbit.Domain.OrderItem" />
+		</set>
+			
+	</class>	
+</hibernate-mapping>
+
+

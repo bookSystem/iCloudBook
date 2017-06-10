@@ -10,9 +10,9 @@ public interface SellerOrderService {
 
 	@SuppressWarnings("all")
 
-	OrderItem findOrder(int orderId);
+	Order findOrder(int orderId);
 
-	void dealOrder(OrderItem orderItem);
+	void dealOrder(Order order);
 
 	PageBean getOrder(int currentPage,int sellerId);
 

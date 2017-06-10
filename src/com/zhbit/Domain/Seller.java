@@ -13,6 +13,14 @@ public class Seller {
 	private String address;
     private String person;
     private Set<Book> setBook = new HashSet<Book>();
+    private Set<Order> setOrder = new HashSet<Order>();
+    
+	public Set<Order> getSetOrder() {
+		return setOrder;
+	}
+	public void setSetOrder(Set<Order> setOrder) {
+		this.setOrder = setOrder;
+	}
     
 	
 	public Set<Book> getSetBook() {

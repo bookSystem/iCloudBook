@@ -11,6 +11,7 @@ public class Order {
 	private String isDeal;// 订单状态
 	private String address;// 收货地址
 	private User user;// 订单的所有者
+	private Seller seller;// 订单的所有者
 	private Set<OrderItem> setOrderItems = new HashSet<OrderItem>();
 
 	public Set<OrderItem> getSetOrderItems() {
@@ -78,4 +79,12 @@ public class Order {
 		this.user = user;
 	}
 
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+	
 }

@@ -10,6 +10,13 @@
 		<property name="quantity" column="quantity" not-null="true"></property>
 		<many-to-one name="book" column="bookId" class="com.zhbit.Domain.Book"></many-to-one>
 		<many-to-one name="order" column="orderId" class="com.zhbit.Domain.Order" lazy="false" ></many-to-one>
+		<many-to-one name="seller" column="sellerId" class="com.zhbit.Domain.Seller" ></many-to-one>
+		
+		<!-- <set name="setSeller" table="t_sellerItem" cascade="save-update">
+			<key column="orderItemId"></key>
+			<many-to-many column="sellerId" class="com.zhbit.Domain.Seller"></many-to-many>
+		</set> -->
+		
 	</class>	
 </hibernate-mapping>
 

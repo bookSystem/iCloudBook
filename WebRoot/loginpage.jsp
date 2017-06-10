@@ -127,7 +127,7 @@
                 <div style="float:left;width: 165px;height:35px;line-height:35px;"><a id="box2"  onclick="box(2)">注册</a></div>
             </div>
             <%-- <s:actionerror/> --%>
-            <form id="form1" style="width:80%;margin: 0 auto;display: block;" method="post" action="user_login.action">
+            <s:form id="form1" style="width:80%;margin: 0 auto;display: block;" method="post" action="user_login.action">
                 <div class="input-group" style="padding-top: 30px;">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     <input type="text" name="name" class="form-control" placeholder="用户名" style="height: 40px">
@@ -153,7 +153,7 @@
                 </div>
                 <span style="margin: 0 auto;"><button type="submit" class="btn btn-primary"
                                                      style="text-align:center;width: 100%;margin-top: 5px">登录</button></span>
-            </form>
+            </s:form>
 
             <form id="form2" style="width:80%;margin: 0 auto;display: none;" method="post" action="user_regist.action">
                 <div class="input-group" style="padding-top: 30px;">

@@ -2,10 +2,13 @@ package com.zhbit.Dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.zhbit.Domain.Order;
 import com.zhbit.Domain.OrderItem;
+import com.zhbit.Domain.Seller;
 
 public class OrderDaoImpl extends HibernateDaoSupport implements OrderDao {
 
@@ -33,10 +36,12 @@ public class OrderDaoImpl extends HibernateDaoSupport implements OrderDao {
 		return this.getHibernateTemplate().get(Order.class, orderId);
 	}
 
+	@SuppressWarnings("all")
 	@Override
 	public void orderItemAdd(OrderItem orderItem) {
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().save(orderItem);
+		
 		
 		
 	}
@@ -56,5 +61,6 @@ public class OrderDaoImpl extends HibernateDaoSupport implements OrderDao {
 		this.getHibernateTemplate().update(order);
 	}
 
+	
 
 }

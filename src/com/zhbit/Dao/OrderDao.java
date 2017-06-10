@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zhbit.Domain.Order;
 import com.zhbit.Domain.OrderItem;
+import com.zhbit.Domain.Seller;
 
 public interface OrderDao {
 
@@ -16,6 +17,7 @@ public interface OrderDao {
 	List<Order> myOrderList(int userId);
 
 	void updateOrder(Order order);
+
 
 
 }

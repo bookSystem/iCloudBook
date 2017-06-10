@@ -33,6 +33,7 @@
 			<br> <span>出版社:</span><span class="h3">${book.publishName
 				}</span><br>
 			<br> <span>商品编号:</span><span class="h3">${book.bookNo }</span><br>
+			<br> <span>卖家编号:</span><span class="h3">${book.seller.sellerId }</span><br>
 			<br> <span>剩余数量:</span><span class="h3">${book.bookNum }</span><span
 				style="padding-left: 5px">本</span>
 			<div class="clear"></div>
@@ -47,6 +48,7 @@
 
 				
 				<form id="spcartform" name="shoppingcart" action="car_CarAdd.action?bookId=${book.bookId }" method="post" onsubmit="buyadd(n);">
+					<input type="hidden" name="sellerId" value="${book.seller.sellerId }">
 					<span style="float: left">购买数量:</span> <input type="text"
 						name="number" size="10" value="1" style="float: left;"><br>
 					<br>

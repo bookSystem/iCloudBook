@@ -24,13 +24,13 @@ public class SellerOrderDaoImpl extends HibernateDaoSupport implements SellerOrd
 	private SessionFactory session;
 	
 	@Override
-	public OrderItem findOrder(int orderId) {
+	public Order findOrder(int orderId) {
 		// TODO Auto-generated method stub
-		return this.getHibernateTemplate().get(OrderItem.class, orderId);
+		return this.getHibernateTemplate().get(Order.class, orderId);
 	}
 
 	@Override
-	public void dealOrder(OrderItem order) {
+	public void dealOrder(Order order) {
 		// TODO Auto-generated method stub
 		//String hql = "update Order set isDeal = '1'";
 		order.setIsDeal("2");

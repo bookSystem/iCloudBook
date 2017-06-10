@@ -13,6 +13,7 @@
 		<property name="isDeal" column="isDeal" not-null="true"></property>
 		<property name="address" column="address" not-null="true"></property>
 		<many-to-one name="user" column="userId" class="com.zhbit.Domain.User"></many-to-one>
+		<many-to-one name="seller" column="sellerId" class="com.zhbit.Domain.Seller"></many-to-one>
 		<set name="setOrderItems" table="t_orderItem" inverse="true" lazy="false" cascade="all">
 			<key column="orderId"></key>
 			<one-to-many class="com.zhbit.Domain.OrderItem" />

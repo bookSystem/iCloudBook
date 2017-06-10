@@ -19,6 +19,10 @@
 			<key column="sellerId"></key>
 			<one-to-many class="com.zhbit.Domain.Book"/>
 		</set>
+		<set name="setOrder">
+			<key column="sellerId"></key>
+			<one-to-many class="com.zhbit.Domain.Order"/>
+		</set>
 	</class>
 	
 </hibernate-mapping>

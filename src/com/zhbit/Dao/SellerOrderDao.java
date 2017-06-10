@@ -10,9 +10,9 @@ public interface SellerOrderDao {
 	@SuppressWarnings("all")
 	List getOrder(int begin, int pageSize,int sellerId);
 
-	OrderItem findOrder(int orderId);
+	Order findOrder(int orderId);
 
-	void dealOrder(OrderItem order);
+	void dealOrder(Order order);
 
 	int getCount();
 

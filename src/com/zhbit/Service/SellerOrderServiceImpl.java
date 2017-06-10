@@ -18,13 +18,13 @@ public class SellerOrderServiceImpl implements SellerOrderService {
 	private SellerOrderDao sellerOrderDao;
 
 	@Override
-	public OrderItem findOrder(int orderId) {
+	public Order findOrder(int orderId) {
 		// TODO Auto-generated method stub
 		return sellerOrderDao.findOrder(orderId);
 	}
 
 	@Override
-	public void dealOrder(OrderItem order) {
+	public void dealOrder(Order order) {
 		// TODO Auto-generated method stub
 		sellerOrderDao.dealOrder(order);
 	}

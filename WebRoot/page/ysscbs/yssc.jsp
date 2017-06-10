@@ -124,7 +124,7 @@
                         </li>
 
                         <li class="last">
-                            <a href="yssclogin.jsp">
+                             <a href="${pageContext.request.contextPath}/loginpage.jsp">
                                 <i class="fa-lock"></i>
                                 登出账号
                             </a>

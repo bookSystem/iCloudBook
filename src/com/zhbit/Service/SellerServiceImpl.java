@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.jboss.weld.security.spi.SecurityServices;
+/*import org.jboss.weld.security.spi.SecurityServices;*/
 
 import com.zhbit.Dao.SellerDao;
 import com.zhbit.Domain.Seller;

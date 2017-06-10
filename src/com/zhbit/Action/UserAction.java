@@ -179,7 +179,7 @@ public class UserAction extends ActionSupport{
 				return "admin_loginsuccess";
 			}	
 		}
-		
+		/*this.addActionError("登陆不成功");*/
 		return INPUT;
 		
 	}

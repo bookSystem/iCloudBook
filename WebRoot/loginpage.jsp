@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <title>云书商城-正品书店，品类齐全，价格优惠！</title>
@@ -125,6 +126,7 @@
                 <div style="float: left;width: 1px;height: 35px;background-color: rgba(204,204,204,0.8);"></div>
                 <div style="float:left;width: 165px;height:35px;line-height:35px;"><a id="box2"  onclick="box(2)">注册</a></div>
             </div>
+            <%-- <s:actionerror/> --%>
             <form id="form1" style="width:80%;margin: 0 auto;display: block;" method="post" action="user_login.action">
                 <div class="input-group" style="padding-top: 30px;">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>

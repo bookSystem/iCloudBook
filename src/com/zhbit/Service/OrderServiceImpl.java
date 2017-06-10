@@ -29,6 +29,7 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		List<Book> shoppingBook = (List<Book>)session.getAttribute("checkBook");
+		List<Book> shoppingcar = (List<Book>)session.getAttribute("shoppingBook");
 		double totalMoney =(Double)session.getAttribute("checkMoney");
 		User user = (User)session.getAttribute("user");
 		Order order = new Order();
@@ -57,7 +58,18 @@ public class OrderServiceImpl implements OrderService {
 			orderDao.orderItemAdd(orderItem);
 		}
 		
-		session.removeAttribute("shoppingBook");
+		for (Book check : shoppingBook) {
+			for (Book car : shoppingcar) {
+				if(check.getBookId()==car.getBookId()){
+					shoppingcar.remove(check);
+					break;
+				}
+			}
+		}
+		session.setAttribute("shoppingBook", shoppingcar);
+		
+		
+		/*session.removeAttribute("shoppingBook");*/
 		session.removeAttribute("totalMoney");
 	}
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.mapping.Array;
@@ -65,8 +66,10 @@ public class CarAction extends ActionSupport {
 	 */
 	
 	public String CarList(){
-		
+		List<Book> books = carService.CarList();
 		return "CarList";
+		
+		
 	}
 	
 	

@@ -170,6 +170,22 @@ public class CarServiceImpl implements CarService {
 		ServletActionContext.getRequest().getSession().setAttribute("checkMoney", price);
 		
 	}
+
+	@SuppressWarnings("all")
+	@Override
+	public List<Book> CarList() {
+		// TODO Auto-generated method stub
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		List<Book> books = (List<Book>) session.getAttribute("shoppingBook");
+		if(books!=null&&books.size()>0){
+			return books;
+		}
+		else {
+			return null;
+		
+		}
+	
+	}
 	
 	
 			

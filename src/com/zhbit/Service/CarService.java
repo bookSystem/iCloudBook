@@ -1,5 +1,7 @@
 package com.zhbit.Service;
 
+import java.util.List;
+
 import com.zhbit.Domain.Book;
 
 
@@ -18,5 +20,7 @@ public interface CarService {
 	void jiesuan(int[] carItem);
 
 	void checkPrice();
+
+	List<Book> CarList();
 
 }

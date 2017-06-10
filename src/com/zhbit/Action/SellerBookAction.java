@@ -196,12 +196,21 @@ public class SellerBookAction extends ActionSupport {
 	 * 1銆佹樉绀烘墍鏈夊浘涔�
 	 */
 	public String showBook(){
-		PageBean bookList = (PageBean) sellerBookService.showBook(currentPage);	
+		int book_flag = 0;
 		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
 		System.out.println(sellerId);
 		ServletActionContext.getRequest().setAttribute("sId",sellerId);
-		ServletActionContext.getRequest().setAttribute("bookList",bookList);
-		return "showBook";		
+		PageBean bookList = (PageBean) sellerBookService.showBook(currentPage,sellerId);
+		if(bookList != null){
+			ServletActionContext.getRequest().setAttribute("bookList",bookList);
+			book_flag=1;
+			ServletActionContext.getRequest().setAttribute("book_flag",book_flag);
+			
+		}else{
+			ServletActionContext.getRequest().setAttribute("bookList",bookList);
+			ServletActionContext.getRequest().setAttribute("book_flag",book_flag);
+		}
+		return "showBook";	
 	}
 	
 	/*
@@ -224,6 +233,8 @@ public class SellerBookAction extends ActionSupport {
 		book.setDescripe(ServletActionContext.getRequest().getParameter("descripe"));
 		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
 		ServletActionContext.getRequest().setAttribute("sId",sellerId);
+		Seller seller = userService.findSeller(sellerId);
+		book.setSeller(seller);
 		sellerBookService.updateBook(book,bookId);
 		return "updateBook";
 	}
@@ -234,8 +245,11 @@ public class SellerBookAction extends ActionSupport {
 	 */
 	public String deleteBook(){
 		int bookId = Integer.parseInt(ServletActionContext.getRequest().getParameter("bookId"));
+		Book book =  sellerBookService.findOne(bookId);
 		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
 		ServletActionContext.getRequest().setAttribute("sId",sellerId);
+		Seller seller = userService.findSeller(sellerId);
+		book.setSeller(seller);
 		sellerBookService.deleteBook(bookId);
 		return "deleteBook";
 	}

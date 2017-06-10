@@ -42,17 +42,31 @@
 </head>
 <body class="page-body skin-navy">
 <%
-	if(request.getAttribute("orderList")==null)
-	{
-		if(request.getParameter("sellerId") != null){
-			String sellerId = request.getParameter("sellerId");
-			response.sendRedirect("seller_getOrder.action?sellerId=" +sellerId); 
-		}
-		else{
-			String sellerId = (String)request.getAttribute("sId");
-			response.sendRedirect("seller_getOrder.action?sellerId" +sellerId); 
+	if(request.getAttribute("orderList")==null){
+		if(request.getAttribute("order_flag") == null){
+			if(request.getParameter("sellerId") != null){
+				String sellerId = request.getParameter("sellerId");
+				response.sendRedirect("seller_getOrder.action?sellerId=" +sellerId); 
+			}
+			else{
+				String sellerId = (String)request.getAttribute("sId");
+				response.sendRedirect("seller_getOrder.action?sellerId" +sellerId); 
+			}
+		}else{
+			if(request.getAttribute("order_flag").equals(1)){
+				if(request.getParameter("sellerId") != null){
+					String sellerId = request.getParameter("sellerId");
+					response.sendRedirect("seller_getOrder.action?sellerId=" +sellerId); 
+				}
+				else{
+					String sellerId = (String)request.getAttribute("sId");
+					response.sendRedirect("seller_getOrder.action?sellerId=" +sellerId); 
+				}	
 		}
 	}
+}
+		
+		
 %>
 
 <div class="page-container">
@@ -165,6 +179,7 @@
                     </thead>
 
                     <tbody>
+                    <c:if test="${not empty orderList.list}">
                     <c:forEach items="${orderList.list}" var="order">
                     <tr>
                         <td>
@@ -215,24 +230,30 @@
                         </td>
                         <td width="120px" align="center">
                         <c:if test="${order.isDeal eq 0}">
+                            <a onclick=""
+                               class="btn btn-secondary btn-sm btn-icon icon-left">
+                               待付款
+                            </a>
+						</c:if>
+                        <c:if test="${order.isDeal eq 1}">
                             <a onclick="editInfo(this);"
                                class="btn btn-secondary btn-sm btn-icon icon-left">
                                 发货
                             </a>
 						</c:if>
-						<c:if test="${order.isDeal eq 1}">
+						<c:if test="${order.isDeal eq 2}">
                             <a onclick=""
                                class="btn btn-secondary btn-sm btn-icon icon-left">
                                 完成发货
                             </a>
 						</c:if>
-						<c:if test="${order.isDeal eq 2}">
+						<c:if test="${order.isDeal eq 3}">
                             <a onclick=""
                                class="btn btn-secondary btn-sm btn-icon icon-left">
                                 交易成功
                             </a>
 						</c:if>
-						<c:if test="${order.isDeal eq 3}">
+						<c:if test="${order.isDeal eq 4}">
                             <a onclick=""
                                class="btn btn-danger btn-sm btn-icon icon-left">
                                 已取消
@@ -243,6 +264,7 @@
                         </td>
                     </tr>
 					</c:forEach>
+					</c:if>
                     </tbody>
                 </table>
 

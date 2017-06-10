@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.zhbit.Domain.Seller;
 import com.zhbit.Domain.User;
 
 public class AdminDaoImpl extends HibernateDaoSupport implements AdminDao {
@@ -42,11 +43,30 @@ public class AdminDaoImpl extends HibernateDaoSupport implements AdminDao {
 	public List deleteUser(int userId) {
 		// TODO Auto-generated method stub
 		List<User> list = null;
-		String hql = "delete from User where id=?";
+		String hql = "delete from User where userId=?";
 		Query q = session.getCurrentSession().createQuery(hql);
 		q.setInteger(0, userId);
 		q.executeUpdate();
 		Query query = session.getCurrentSession().createQuery("from User");
+		list = query.list();
+		return list;
+	}
+
+	@Override
+	public List showSeller(int begin, int pageSize) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Seller.class);
+		List list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+		return list;
+	}
+
+	@Override
+	public List deleteSeller(int sellerId) {
+		List<Seller> list = null;
+		String hql = "delete from Seller where sellerId=?";
+		Query q = session.getCurrentSession().createQuery(hql);
+		q.setInteger(0, sellerId);
+		q.executeUpdate();
+		Query query = session.getCurrentSession().createQuery("from Seller");
 		list = query.list();
 		return list;
 	}

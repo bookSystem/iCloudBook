@@ -107,6 +107,9 @@
 		<action name="admin_*" class="adminAction" method="{1}">
 			<result name="showUser">/page/ysscbs/usermanager.jsp</result>
 			<result name="deleteUser">/page/ysscbs/usermanager.jsp</result>
+			<result name="showSeller">/page/ysscbs/sellermanager.jsp</result>
+			<result name="deleteSeller">/page/ysscbs/sellermanager.jsp</result>
+			<result name="success">/page/ysscbs/admin.jsp</result>
 		</action>
 		
 		

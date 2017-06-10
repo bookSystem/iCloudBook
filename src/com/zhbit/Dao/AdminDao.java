@@ -10,4 +10,8 @@ public interface AdminDao {
 
 	List deleteUser(int userId);
 
+	List showSeller(int begin, int pageSize);
+
+	List deleteSeller(int sellerId);
+
 }

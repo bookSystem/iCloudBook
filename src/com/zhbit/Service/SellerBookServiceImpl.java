@@ -88,7 +88,7 @@ public class SellerBookServiceImpl implements SellerBookService {
 
 	@SuppressWarnings("all")
 	@Override
-	public PageBean showBook(int currentPage) {
+	public PageBean showBook(int currentPage,int sellerId) {
 		// TODO Auto-generated method stub
 		PageBean bookBean = new PageBean();
 		bookBean.setCurrentPage(currentPage);
@@ -105,7 +105,7 @@ public class SellerBookServiceImpl implements SellerBookService {
 			}
 		 bookBean.setTotalPage(totalPage);
 		 int begin = (currentPage-1)*pageSize;
-		 List list = sellerBookDao.showBook(begin,pageSize);
+		 List list = sellerBookDao.showBook(begin,pageSize,sellerId);
 		 bookBean.setList(list);
 		return bookBean;
 	}

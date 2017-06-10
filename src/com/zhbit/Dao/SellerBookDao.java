@@ -36,7 +36,7 @@ public interface SellerBookDao {
 	int getCount();
 
 	@SuppressWarnings("rawtypes")
-	List showBook(int begin, int pageSize);
+	List showBook(int begin, int pageSize,int sellerId);
 
 	void updateBook(Book book, int bookId);
 

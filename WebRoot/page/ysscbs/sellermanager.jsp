@@ -43,8 +43,8 @@
 </head>
 <body class="page-body skin-navy">
 <%
-	if(request.getAttribute("showUser")==null){
-		response.sendRedirect("admin_showUser.action"); 
+	if(request.getAttribute("showSeller")==null){
+		response.sendRedirect("admin_showSeller.action"); 
 	}
 %>
 
@@ -59,7 +59,7 @@
 
                 <!-- logo -->
                 <div class="logo">
-                    <a href="yssc.jsp"><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
+                    <a href=""><img src="assets/images/logo@2x.png" width="140px" alt=""/></a>
                 </div>
 
                 <div class="mobile-menu-toggle visible-xs">
@@ -98,17 +98,17 @@
             <div class="breadcrumb-env">
                 <ol class="breadcrumb bc-1">
                     <li>
-                        <a href="admin" target="_self"><i class="fa-home"></i>主页</a>
+                        <a href="admin.jsp" target="_self"><i class="fa-home"></i>主页</a>
                     </li>
                     <li class="active">
-                        <strong>买家信息管理</strong>
+                        <strong>卖家信息管理</strong>
                     </li>
                 </ol>
             </div>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">买家信息管理</h3>
+                <h3 class="panel-title">卖家信息管理</h3>
             </div>
             <div class="panel-body">
 
@@ -136,38 +136,38 @@
                     </thead>
 
                     <tbody>
-						 <c:forEach items="${showUser.list}" var="showUser">
+						 <c:forEach items="${showSeller.list}" var="showSeller">
 
                     <tr>
                         <td>
                             <%--内容超出范围会显示--%>
                             <div class="tdcss" style="width: 30px">
-                                ${ showUser.userId}
+                                ${ showSeller.sellerId}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 70px">
-                                ${ showUser.name}
+                                ${ showSeller.name}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 90px">
-                                ${ showUser.password}
+                                ${ showSeller.password}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 70px">
-                                ${ showUser.email}
+                                ${ showSeller.email}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:100px;">
-                                ${ showUser.telnum}
+                                ${ showSeller.telnum}
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:120px;">
-                              ${ showUser.address}
+                              ${ showSeller.address}
                             </div>
                         </td>
                         <td width="120px" align="center">
@@ -219,9 +219,9 @@
     function deleteInfo(obj) {
 //        删除函数
         var divs = $(obj).parent().parent().children().find('div');
-        $('#userid').val(divs.eq(0).text().trim());
-        $('#duserid').val(divs.eq(0).text().trim());
-        $('#dusername').val(divs.eq(1).text().trim());
+        $('#sellerid').val(divs.eq(0).text().trim());
+        $('#dsellerid').val(divs.eq(0).text().trim());
+        $('#dsellername').val(divs.eq(1).text().trim());
 
         $('#modal-4').modal('show');
     }
@@ -241,13 +241,13 @@
                 <h4 class="modal-title">提示框</h4>
             </div>
             <div class="modal-body">
-                <form action="admin_deleteUser.action" method="post" role="form" class="form-horizontal" style="width: 95%;min-width: 250px" >
-					 <input type="hidden" id="userid" name="userId" value="">
+                <form action="admin_deleteSeller.action" method="post" role="form" class="form-horizontal" style="width: 95%;min-width: 250px" >
+					 <input type="hidden" id="sellerid" name="sellerId" value="">
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="duserid">用户ID</label>
 
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="duserid" name="duserid" placeholder=""
+                            <input type="number" class="form-control" id="dsellerid" name="dsellerid" placeholder=""
                                    value="" disabled="disabled">
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                         <label class="col-sm-2 control-label" for="dusername">用户名</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="dusername" name="userName" placeholder=""
+                            <input type="text" class="form-control" id="dsellername" name="sellerName" placeholder=""
                                    value="" disabled="disabled">
                         </div>
                     </div>

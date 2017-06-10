@@ -43,17 +43,30 @@
 </head>
 <body class="page-body skin-navy">
 <%
-	if(request.getAttribute("bookList")==null)
-	{
-		if(request.getParameter("sellerId") != null){
-			String sellerId = request.getParameter("sellerId");
-			response.sendRedirect("sellerBook_showBook.action?sellerId=" +sellerId); 
+	if((request.getAttribute("bookList")==null)){
+		if(request.getAttribute("book_flag") == null){
+			if(request.getParameter("sellerId") != null){
+				String sellerId = request.getParameter("sellerId");
+				response.sendRedirect("sellerBook_showBook.action?sellerId=" +sellerId); 
+			}
+			else{
+				String sellerId = (String)request.getAttribute("sId");
+				response.sendRedirect("sellerBook_showBook.action?sellerId=" +sellerId); 
+			}	
 		}
 		else{
-			String sellerId = (String)request.getAttribute("sId");
-			response.sendRedirect("sellerBook_showBook.action?sellerId=" +sellerId); 
+			if(request.getAttribute("book_flag").equals(1)){
+				if(request.getParameter("sellerId") != null){
+					String sellerId = request.getParameter("sellerId");
+					response.sendRedirect("sellerBook_showBook.action?sellerId=" +sellerId); 
+				}
+				else{
+					String sellerId = (String)request.getAttribute("sId");
+					response.sendRedirect("sellerBook_showBook.action?sellerId=" +sellerId); 
+				}	
+			}
+			
 		}
-		
 	}
 %>
 
@@ -269,6 +282,7 @@
 
                     <tbody>
                     <!--内容开始-->
+                    <c:if test="${not empty bookList.list}">
                      <c:forEach items="${bookList.list}" var="book">
                     <tr>
                     <input type="hidden" name="bookId" value="${ book.bookId}">
@@ -332,6 +346,7 @@
                         </td>
                     </tr>
                     </c:forEach>
+                    </c:if>
                     <!--内容结束-->
 
 

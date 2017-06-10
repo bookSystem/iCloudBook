@@ -31,7 +31,7 @@ public interface SellerBookService {
 
 	Book findOne(int bookId);
 
-	PageBean showBook(int currentPage);
+	PageBean showBook(int currentPage,int sellerId);
 
 	void updateBook(Book book, int bookId);
 

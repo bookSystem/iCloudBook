@@ -4,14 +4,18 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.zhbit.Domain.Book;
 import com.zhbit.Domain.Order;
+import com.zhbit.Domain.OrderItem;
 
 @SuppressWarnings("all")
 public class SellerOrderDaoImpl extends HibernateDaoSupport implements SellerOrderDao {
@@ -20,25 +24,30 @@ public class SellerOrderDaoImpl extends HibernateDaoSupport implements SellerOrd
 	private SessionFactory session;
 	
 	@Override
-	public Order findOrder(int orderId) {
+	public OrderItem findOrder(int orderId) {
 		// TODO Auto-generated method stub
-		return this.getHibernateTemplate().get(Order.class, orderId);
+		return this.getHibernateTemplate().get(OrderItem.class, orderId);
 	}
 
 	@Override
-	public void dealOrder(Order order) {
+	public void dealOrder(OrderItem order) {
 		// TODO Auto-generated method stub
 		//String hql = "update Order set isDeal = '1'";
-		order.setIsDeal("1");
+		order.setIsDeal("2");
 	    
 		this.getHibernateTemplate().update(order);
 	}
 
 	@Override
-	public List getOrder(int begin, int pageSize) {
+	public List getOrder(int begin,int pageSize,int sellerId) {
+		HibernateTemplate ht=this.getHibernateTemplate();
 		DetachedCriteria criteria = DetachedCriteria.forClass(Order.class);
-		List list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
-		return list;
+		if(criteria.add(Restrictions.eq("seller.sellerId", sellerId)) != null){
+			List list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+			return list;
+		}else{
+			return null;
+		}
 	}
 
 	@Override

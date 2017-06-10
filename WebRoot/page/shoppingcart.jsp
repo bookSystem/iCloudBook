@@ -20,6 +20,7 @@
         });
        	$("#cartItemIds").val(cartItemIdArray.toString());
         $("#hiddenTotal").val($("#priceTotal").text());
+      
         $('#shoppingcart').submit();
     }
 </script>
@@ -44,6 +45,7 @@
             <form id="shoppingcart" name="shoppingcart" action="car_jiesuan.action" method="post">
             	<input type="hidden" name="cartItemIds" id="cartItemIds"/>
 				<input type="hidden" name="total" id="hiddenTotal"/>
+				<input type="hidden" name="sellerId" id="sellerId"/>
                 <table id="cartTable" class="cart table text-center" style="margin-bottom: 20px">
                     <thead>
                     <tr style="height: 50px">
@@ -58,14 +60,16 @@
                         <th class="t-action text-center minheight" style="width:131px;"><label>操作</label></th>
                     </tr>
                     </thead>
+                    
                     <tbody style="margin: 0 auto;padding: 0">
 						<c:forEach items="${sessionScope.shoppingBook }" var="st">
+							
 			                    <tr>
 			                        <td class="t-checkbox text-center minheight"><label
 			                                style="padding-top:  10px;padding-left: 0"><input name="goodsids" type="checkbox" value="${st.bookId }"
 			                                 class="check-one check" /></label></td>
 			                        <td class="goods text-center" id="goosid">${st.bookNo }</td>
-			                        <td class="remarks text-center">${st.bookName }</td>
+			                        <td id="sellerId" class="remarks text-center">${st.bookName}</td>
 			                        <%--<td class="remarks text-center"><input type="text" style="width: 100%;text-align: center"></td>--%>
 			                        <td class="selling-price number small-bold-red text-center"
 			                            style="line-height: 40px;padding-left: 20px"
@@ -84,7 +88,7 @@
 			                        <td class="action text-center" style="padding-top: 14px;"><a href="car_CarDelete.action?bookId=${st.bookId }"><span
 			                                class="delete btn btn-xs btn-warning">删除</span></a></td>
 			                    </tr>
-
+							
 						</c:forEach>
 
 

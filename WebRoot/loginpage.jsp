@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <title>云书商城-正品书店，品类齐全，价格优惠！</title>
@@ -51,7 +52,6 @@
     <script type="text/javascript">
         ;
         (function () {
-
             var defaultInd = 0;
             var list = $('#js_ban_content').children();
             var count = 0;
@@ -74,7 +74,6 @@
                     }
                 });
             }
-
             var next = function (callback) {
                 var newInd = defaultInd + 1;
                 if (newInd >= list.length) {
@@ -82,7 +81,6 @@
                 }
                 change(newInd, callback);
             }
-
             var start = function () {
                 if (start.timer) window.clearTimeout(start.timer);
                 start.timer = window.setTimeout(function () {
@@ -91,9 +89,7 @@
                     });
                 }, 3000);
             }
-
             start();
-
             $('#js_ban_button_box').on('click', 'a', function () {
                 var btn = $(this);
                 if (btn.hasClass('right')) {
@@ -114,7 +110,6 @@
                 }
                 return false;
             });
-
         })();
     </script>
     <div class="container">
@@ -125,7 +120,8 @@
                 <div style="float: left;width: 1px;height: 35px;background-color: rgba(204,204,204,0.8);"></div>
                 <div style="float:left;width: 165px;height:35px;line-height:35px;"><a id="box2"  onclick="box(2)">注册</a></div>
             </div>
-            <form id="form1" style="width:80%;margin: 0 auto;display: block;" method="post" action="user_login.action">
+            <%-- <s:actionerror/> --%>
+            <s:form id="form1" style="width:80%;margin: 0 auto;display: block;" method="post" action="user_login.action">
                 <div class="input-group" style="padding-top: 30px;">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     <input type="text" name="name" class="form-control" placeholder="用户名" style="height: 40px">
@@ -151,7 +147,7 @@
                 </div>
                 <span style="margin: 0 auto;"><button type="submit" class="btn btn-primary"
                                                      style="text-align:center;width: 100%;margin-top: 5px">登录</button></span>
-            </form>
+            </s:form>
 
             <form id="form2" style="width:80%;margin: 0 auto;display: none;" method="post" action="user_regist.action">
                 <div class="input-group" style="padding-top: 30px;">

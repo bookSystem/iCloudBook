@@ -1,13 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Yejunjie
-  Date: 2017/5/10
-  Time: 23:49
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="top.jsp"></jsp:include>
+<script>
+    $(document).ready(function() {
+        flag = $("input[name='hiddenflag']").val();
+        $(".nava").each(function(index) {
+            $(".nava").removeClass("nav_active");
+            $(".nava").eq(Number(flag)).addClass("nav_active");
+        });
+    });
+	$(document).ready(function() {
+		flag = $("input[name='hiddenflag']").val();
+		$(".nava").each(function(index) {
+			$(".nava").removeClass("nav_active");
+			$(".nava").eq(Number(flag)).addClass("nav_active");
+		});
+	});
+</script>
+<input type="hidden" name="hiddenflag" value="4">
 <main>
     <div class="main_container">
         <!-- <div class="navdiv">

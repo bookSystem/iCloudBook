@@ -1,25 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Yejunjie
-  Date: 2017/5/10
-  Time: 23:49
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-	<head>
-	    <title>云书商城-正品书店，品类齐全，价格优惠！</title>
-	    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/yunlogo.ico" type="image/x-icon"/>
-	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/reset.css"/>
-	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
-	    <link href="${pageContext.request.contextPath}/css/homeindex.css" rel="stylesheet" type="text/css"/>
-	    <script type="text/javascript" src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js"></script>
-	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/icloudstyle.css"/>
-	    <script type="text/javascript" src="${pageContext.request.contextPath}/javascript/navspace.js"></script>
-	</head>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="page/top.jsp"></jsp:include>
+<script>
+	$(document).ready(function() {
+		flag = $("input[name='hiddenflag']").val();
+		$(".nava").each(function(index) {
+			$(".nava").removeClass("nav_active");
+			$(".nava").eq(Number(flag)).addClass("nav_active");
+		});
+	});
+</script>
+<input type="hidden" name="hiddenflag" value="0">
 
 <% 
 		  if(request.getAttribute("T_flag")==null) 
@@ -48,9 +39,7 @@
                     <a href="javascript:;" class="right">右</a>
                 </div>
                 <script type="text/javascript">
-
                     (function () {
-
                         var defaultInd = 0;
                         var list = $('#js_ban_content').children();
                         var count = 0;
@@ -73,7 +62,6 @@
                                 }
                             });
                         }
-
                         var next = function (callback) {
                             var newInd = defaultInd + 1;
                             if (newInd >= list.length) {
@@ -81,7 +69,6 @@
                             }
                             change(newInd, callback);
                         }
-
                         var start = function () {
                             if (start.timer) window.clearTimeout(start.timer);
                             start.timer = window.setTimeout(function () {
@@ -90,9 +77,7 @@
                                 });
                             }, 3000);
                         }
-
                         start();
-
                         $('#js_ban_button_box').on('click', 'a', function () {
                             var btn = $(this);
                             if (btn.hasClass('right')) {
@@ -113,7 +98,6 @@
                             }
                             return false;
                         });
-
                     })();
                 </script>
             </div>

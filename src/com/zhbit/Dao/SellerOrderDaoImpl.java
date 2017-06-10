@@ -41,9 +41,12 @@ public class SellerOrderDaoImpl extends HibernateDaoSupport implements SellerOrd
 	@Override
 	public List getOrder(int begin,int pageSize,int sellerId) {
 		HibernateTemplate ht=this.getHibernateTemplate();
-		DetachedCriteria criteria = DetachedCriteria.forClass(Order.class);
-		if(criteria.add(Restrictions.eq("seller.sellerId", sellerId)) != null){
-			List list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+		Criteria criteria1 = session.getCurrentSession().createCriteria(OrderItem.class);
+		criteria1.add(Restrictions.eq("seller.sellerId", sellerId));
+		List list1 = criteria1.list();
+		if(!list1.isEmpty()){
+			DetachedCriteria criteria2 = DetachedCriteria.forClass(Order.class);
+			List list = this.getHibernateTemplate().findByCriteria(criteria2, begin, pageSize);
 			return list;
 		}else{
 			return null;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.mapping.Array;
@@ -41,9 +42,10 @@ public class CarAction extends ActionSupport {
 	public String CarAdd() {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
+		int sellerId = Integer.parseInt(request.getParameter("sellerId"));
 		int number = Integer.parseInt(request.getParameter("number"));
 		int bookId = this.bookId;
-		carService.CarAdd(bookId,number);
+		carService.CarAdd(sellerId,bookId,number);
 		carService.setPrice();
 		
 		return "CarAdd";
@@ -65,8 +67,10 @@ public class CarAction extends ActionSupport {
 	 */
 	
 	public String CarList(){
-		
+		List<Book> books = carService.CarList();
 		return "CarList";
+		
+		
 	}
 	
 	
@@ -107,6 +111,7 @@ public class CarAction extends ActionSupport {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String cartItemIds = request.getParameter("cartItemIds");
+		//int sellerId = Integer.parseInt(request.getParameter("sellerId"));
 		String[] cartItemIdArray = cartItemIds.split(",");
 		int[] carItem = new int[cartItemIdArray.length];
 		for (int i = 0; i < carItem.length; i++) {

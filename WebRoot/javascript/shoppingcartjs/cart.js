@@ -100,6 +100,7 @@ $(document).ready(function() {
                 //alert("02："+val);
                 input.val(val);
                 getSubTotal(this);
+               
             }
             else if ($(window.event.srcElement).hasClass("plus")) {
                 if (val < 9999) val=val+1;

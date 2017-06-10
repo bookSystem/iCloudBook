@@ -1,10 +1,30 @@
 package com.zhbit.Domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class OrderItem {
 	private int orderItemId;
 	private int quantity;
 	private Book book;
 	private Order order;
+	private Seller seller;
+	/*private Set<Seller> setSeller = new HashSet<Seller>();
+	
+	public Set<Seller> getSetSeller() {
+		return setSeller;
+	}
+	public void setSetSeller(Set<Seller> setSeller) {
+		this.setSeller = setSeller;
+	}*/
+
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
 
 	public int getOrderItemId() {
 		return orderItemId;

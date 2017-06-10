@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.zhbit.Dao.CarDao;
 import com.zhbit.Domain.Book;
+import com.zhbit.Domain.Seller;
 
 @Transactional
 public class CarServiceImpl implements CarService {
@@ -25,7 +26,7 @@ public class CarServiceImpl implements CarService {
 	 * 添加购物车(non-Javadoc)
 	 * @see com.zhbit.Service.CarServiceImpl#CarAdd(int, int)
 	 */
-	public void CarAdd(int bookId, int number) {
+	public void CarAdd(int sellerId, int bookId, int number) {
 		// TODO Auto-generated method stub
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -47,7 +48,9 @@ public class CarServiceImpl implements CarService {
 		}
 		if(i==0){
 			Book book = carDao.findOne(bookId);
+			Seller seller = carDao.findSeller(sellerId);
 			Book book2 = new Book();
+			book2.setSeller(seller);
 			book2.setBookId(bookId);
 			book2.setBookNo(book.getBookNo());
 			book2.setBookName(book.getBookName());
@@ -169,6 +172,22 @@ public class CarServiceImpl implements CarService {
 		}
 		ServletActionContext.getRequest().getSession().setAttribute("checkMoney", price);
 		
+	}
+
+	@SuppressWarnings("all")
+	@Override
+	public List<Book> CarList() {
+		// TODO Auto-generated method stub
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		List<Book> books = (List<Book>) session.getAttribute("shoppingBook");
+		if(books!=null&&books.size()>0){
+			return books;
+		}
+		else {
+			return null;
+		
+		}
+	
 	}
 	
 	

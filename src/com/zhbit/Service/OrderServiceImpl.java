@@ -13,9 +13,11 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zhbit.Dao.OrderDao;
+import com.zhbit.Domain.Admin;
 import com.zhbit.Domain.Book;
 import com.zhbit.Domain.Order;
 import com.zhbit.Domain.OrderItem;
+import com.zhbit.Domain.Seller;
 import com.zhbit.Domain.User;
 
 @Transactional
@@ -29,8 +31,10 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		List<Book> shoppingBook = (List<Book>)session.getAttribute("checkBook");
+		List<Book> shoppingcar = (List<Book>)session.getAttribute("shoppingBook");
 		double totalMoney =(Double)session.getAttribute("checkMoney");
 		User user = (User)session.getAttribute("user");
+
 		Order order = new Order();
 		order.setAddress(address);
 		order.setUser(user);
@@ -51,13 +55,25 @@ public class OrderServiceImpl implements OrderService {
 		Order newOrder = orderDao.findOrder(orderId);
 		for(Book book:shoppingBook){
 			OrderItem orderItem = new OrderItem();
+			orderItem.setSeller(book.getSeller());
 			orderItem.setBook(book);
 			orderItem.setQuantity(book.getBookNum());
 			orderItem.setOrder(newOrder);
 			orderDao.orderItemAdd(orderItem);
-		}
+		}                 
 		
-		session.removeAttribute("shoppingBook");
+		for (Book check : shoppingBook) {
+			for (Book car : shoppingcar) {
+				if(check.getBookId()==car.getBookId()){
+					shoppingcar.remove(check);
+					break;
+				}
+			}
+		}
+		session.setAttribute("shoppingBook", shoppingcar);
+		
+		
+		/*session.removeAttribute("shoppingBook");*/
 		session.removeAttribute("totalMoney");
 	}
 
@@ -88,6 +104,7 @@ public class OrderServiceImpl implements OrderService {
 		int orderId = orderDao.orderAdd(order);//生成订单
 		Order newOrder = orderDao.findOrder(orderId);
 		OrderItem orderItem = new OrderItem();
+		orderItem.setSeller(book.getSeller());
 		orderItem.setBook(book);
 		orderItem.setQuantity(number);
 		orderItem.setOrder(newOrder);

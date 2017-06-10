@@ -3,6 +3,8 @@ package com.zhbit.Domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import javassist.expr.NewArray;
+
 public class Seller {
 	private int sellerId;
 	private String name;
@@ -12,17 +14,23 @@ public class Seller {
 	private String telnum;
 	private String address;
     private String person;
-    private Set<Book> setBook = new HashSet<Book>();
-    private Set<Order> setOrder = new HashSet<Order>();
-    
-	public Set<Order> getSetOrder() {
-		return setOrder;
+    private Admin admin;
+    public Admin getAdmin() {
+		return admin;
 	}
-	public void setSetOrder(Set<Order> setOrder) {
-		this.setOrder = setOrder;
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
 	}
+	private Set<Book> setBook = new HashSet<Book>();
     
-	
+    private Set<OrderItem> setOrderItems = new HashSet<OrderItem>();
+    
+	public Set<OrderItem> getSetOrderItems() {
+		return setOrderItems;
+	}
+	public void setSetOrderItems(Set<OrderItem> setOrderItems) {
+		this.setOrderItems = setOrderItems;
+	}
 	public Set<Book> getSetBook() {
 		return setBook;
 	}

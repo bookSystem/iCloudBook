@@ -91,21 +91,27 @@ public class OrderAction extends ActionSupport {
 	/*
 	 * 3、确认订单
 	 */
-	
-	private int orderId;
-	
-	public int getOrderId() {
-		return orderId;
-	}
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
 	public String firmOrder(){
-		int orderId = this.orderId;
-		Order order = orderService.oneOrder(orderId);
-		orderService.updateOrder(order);
+		
+		 int orderItemId =Integer.parseInt(ServletActionContext.getRequest().getParameter("orderItemId"));
+		 OrderItem orderItem = orderService.oneOrder(orderItemId);
+		orderService.updateOrder(orderItem);
 		
 		return "firmOrder";
+	}
+	
+	/*
+	 * 4、删除订单
+	 * 
+	 */
+	
+	public String deleteOrder(){
+		
+		 int orderId =Integer.parseInt(ServletActionContext.getRequest().getParameter("orderId"));
+		 Order order = orderService.findOrder(orderId);
+		 orderService.deleteOrder(order);
+		 return "deleteOrder";
+		 
 	}
 	
 	

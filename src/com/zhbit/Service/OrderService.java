@@ -3,6 +3,7 @@ package com.zhbit.Service;
 import java.util.List;
 
 import com.zhbit.Domain.Order;
+import com.zhbit.Domain.OrderItem;
 
 
 public interface OrderService {
@@ -11,11 +12,15 @@ public interface OrderService {
 
 	List<Order> myOrderList(int userId);
 
-	Order oneOrder(int orderId);
+	OrderItem oneOrder(int orderItemId);
 
-	void updateOrder(Order order);
+	void updateOrder(OrderItem orderItem);
 
 	void addPay(String addr);
+
+	Order findOrder(int orderId);
+
+	void deleteOrder(Order order);
 
 
 

@@ -30,12 +30,18 @@ public class OrderDaoImpl extends HibernateDaoSupport implements OrderDao {
 	}
 
 	@Override
-	public Order findOrder(int orderId) {
+	public OrderItem findOrder(int orderItemId) {
 		// TODO Auto-generated method stub
 		
-		return this.getHibernateTemplate().get(Order.class, orderId);
+		return this.getHibernateTemplate().get(OrderItem.class, orderItemId);
 	}
 
+	@Override
+	public Order OrderOne(int orderId) {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().get(Order.class, orderId);
+	}
+	
 	@SuppressWarnings("all")
 	@Override
 	public void orderItemAdd(OrderItem orderItem) {
@@ -55,11 +61,19 @@ public class OrderDaoImpl extends HibernateDaoSupport implements OrderDao {
 	}
 
 	@Override
-	public void updateOrder(Order order) {
+	public void updateOrder(OrderItem orderItem) {
 		// TODO Auto-generated method stub
-		order.setIsDeal("2");
-		this.getHibernateTemplate().update(order);
+		orderItem.setIsDeal("1");
+		this.getHibernateTemplate().update(orderItem);
 	}
+
+	@Override
+	public void deleteOrder(Order order) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().delete(order);
+	}
+
+	
 
 	
 

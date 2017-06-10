@@ -10,13 +10,16 @@ public interface OrderDao {
 
 	int orderAdd(Order order);
 
-	Order findOrder(int orderId);
+	OrderItem findOrder(int orderItemId);
+	Order OrderOne(int orderId);
 
 	void orderItemAdd(OrderItem orderItem);
 
 	List<Order> myOrderList(int userId);
 
-	void updateOrder(Order order);
+	void updateOrder(OrderItem orderItem);
+
+	void deleteOrder(Order order);
 
 
 

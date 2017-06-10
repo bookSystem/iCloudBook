@@ -46,14 +46,14 @@
             
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="width: 100%;min-width: 1050px;margin: 0 auto;">
                 <span style="margin-top: 20px">订单号：${order.orderNumber}</span>
-                <c:choose>
+                <%-- <c:choose>
 					<c:when test="${order.isDeal eq 0}"><span style="float: right">订单发货状态:<a>等待付款</a></span></c:when>
-					<%-- <c:when test="${order.isDeal eq 1}"><span style="float: right">订单发货状态:已发货</span></c:when> --%>
+					<c:when test="${order.isDeal eq 1}"><span style="float: right">订单发货状态:已发货</span></c:when>
 					<c:when test="${order.isDeal eq 1}"><span style="float: right">订单发货状态:<a href="order_firmOrder.action?orderId=${order.orderId }">确认收货</a></span></c:when>
 					<c:when test="${order.isDeal eq 2}"><span style="float: right">订单发货状态:交易成功</span></c:when>
 					<c:when test="${order.isDeal eq 3}"><span style="float: right">订单发货状态:已取消</span></c:when>
-				</c:choose>	
-                
+				</c:choose>	 --%>
+            	<span style="float: right"><a href="order_deleteOrder.action?orderId=${order.orderId }">删除订单</a></span>
                 <table class="table table-condensed table-hover text-center"
                        style="margin: 0 auto;margin-top:5px;margin-bottom:20px;">
                     <thead>
@@ -63,6 +63,8 @@
                         <th style="width: 150px;text-align: center">销售单价</th>
                         <th style="width: 150px;text-align: center">采购数量</th>
                         <th style="width: 150px;text-align: center">金额小计</th>
+                        <th style="width: 150px;text-align: center">订单状态</th>
+                       
                     </tr>
                     </thead>
                     <tbody>
@@ -72,8 +74,16 @@
                         <td>${status.index + 1}</td>
                         <td>${item.book.bookNo }</td>
                         <td>${item.book.bookPrice }元</td>
-                        <td>${item.quantity }</td>
+                        <td>${item.orderItemId }</td>
                         <td>${item.quantity*item.book.bookPrice }</td>
+                        <td><c:choose>
+							<%-- <c:when test="${order.isDeal eq 0}"><span style="float: right"><a>等待付款</a></span></c:when> --%>
+							<c:when test="${item.isDeal eq 0}"><span><a href="order_firmOrder.action?orderItemId=${item.orderItemId }">确认收货</a></span></c:when>
+							<c:when test="${item.isDeal eq 1}"><span style="float: right">交易成功</span></c:when>
+							<c:when test="${item.isDeal eq 2}"><span style="float: right">已取消</span></c:when>
+						</c:choose>	
+						</td>
+						
                     </tr>
                     </c:forEach>
                    
@@ -97,7 +107,7 @@
             
  		<!-- 卖家订单明细开始 -->
  		
-	<c:if test="${!empty seller }">	
+	<%-- <c:if test="${!empty seller }">	
 	  
 	   <c:forEach items="${list}" var="sellerOrder" step="1">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="width: 100%;min-width: 1050px;margin: 0 auto;">
@@ -106,11 +116,11 @@
                <span style="margin-top: 20px">订单用户：${sellerOrder.user.name }</span>
                 <span style="float: right">
                 	<c:choose>
-					<c:when test="${sellerOrder.isDeal eq 0}"><a href="seller_dealOrder.action?orderId=${sellerOrder.orderId }">等待发货</a></c:when>
-					<c:when test="${sellerOrder.isDeal eq 1}">等待确认</c:when>
-					<c:when test="${sellerOrder.isDeal eq 2}">交易成功</c:when>
-					<c:when test="${sellerOrder.isDeal eq 3}">已取消</c:when>
-				</c:choose>	
+						<c:when test="${sellerOrder.isDeal eq 0}"><a href="seller_dealOrder.action?orderId=${sellerOrder.orderId }">等待发货</a></c:when>
+						<c:when test="${sellerOrder.isDeal eq 1}">等待确认</c:when>
+						<c:when test="${sellerOrder.isDeal eq 2}">交易成功</c:when>
+						<c:when test="${sellerOrder.isDeal eq 3}">已取消</c:when>
+					</c:choose>	
                 </span>
                 <table class="table table-condensed table-hover text-center"
                        style="margin: 0 auto;margin-top:5px;margin-bottom:20px;">
@@ -121,11 +131,12 @@
                         <th style="width: 150px;text-align: center">销售单价</th>
                         <th style="width: 150px;text-align: center">采购数量</th>
                         <th style="width: 150px;text-align: center">金额小计</th>
+                         <th style="width: 150px;text-align: center">订单状态</th>
                         
                         <!-- <th style="width: 150px;text-align: center">处理订单</th> -->
                     </tr>
                     </thead>
-                   <%--  <tbody>
+                    <tbody>
                     
                         <c:if test="${sellerOrder.isDeal eq 0}">
 							<td><a href="order_dealOrder.action">发货</a></td>
@@ -135,7 +146,7 @@
 						</c:if>
                     </tr>
                     
-                    </tbody> --%>
+                    </tbody>
                   
                     <tbody>
                     <c:forEach items="${sellerOrder.setOrderItems }" var="item" varStatus="status">
@@ -146,6 +157,7 @@
                         <td>${item.book.bookPrice }元</td>
                         <td>${item.quantity }</td>
                         <td>${item.quantity*item.book.bookPrice }</td>
+                       
                     </tr>
                     </c:forEach>
                    
@@ -164,7 +176,7 @@
             </div>
             </c:forEach>
             </c:if>
-            <!-- 订单明细结束 -->		
+            <!-- 订单明细结束 -->	 --%>	
 
 
 

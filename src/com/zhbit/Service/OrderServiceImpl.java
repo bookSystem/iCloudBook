@@ -52,9 +52,10 @@ public class OrderServiceImpl implements OrderService {
 		orderNumber += formatDate+random;
 		order.setOrderNumber(orderNumber);
 		int orderId = orderDao.orderAdd(order);//生成订单
-		Order newOrder = orderDao.findOrder(orderId);
+		Order newOrder = orderDao.OrderOne(orderId);
 		for(Book book:shoppingBook){
 			OrderItem orderItem = new OrderItem();
+			orderItem.setIsDeal("0");
 			orderItem.setSeller(book.getSeller());
 			orderItem.setBook(book);
 			orderItem.setQuantity(book.getBookNum());
@@ -102,8 +103,9 @@ public class OrderServiceImpl implements OrderService {
 		orderNumber += formatDate+random;
 		order.setOrderNumber(orderNumber);
 		int orderId = orderDao.orderAdd(order);//生成订单
-		Order newOrder = orderDao.findOrder(orderId);
+		Order newOrder = orderDao.OrderOne(orderId);
 		OrderItem orderItem = new OrderItem();
+		orderItem.setIsDeal("0");
 		orderItem.setSeller(book.getSeller());
 		orderItem.setBook(book);
 		orderItem.setQuantity(number);
@@ -120,15 +122,31 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Order oneOrder(int orderId) {
+	public OrderItem oneOrder(int orderItemId) {
 		// TODO Auto-generated method stub
-		return orderDao.findOrder(orderId);
+		return orderDao.findOrder(orderItemId);
 	}
 
 	@Override
-	public void updateOrder(Order order) {
+	public void updateOrder(OrderItem orderItem) {
 		// TODO Auto-generated method stub
-		orderDao.updateOrder(order);
+		orderDao.updateOrder(orderItem);
+	}
+
+
+	@Override
+	public Order findOrder(int orderId) {
+		// TODO Auto-generated method stub
+		return orderDao.OrderOne(orderId);
+	}
+
+
+	@Override
+	public void deleteOrder(Order order) {
+		// TODO Auto-generated method stub
+		
+		orderDao.deleteOrder(order);
+		
 	}
 
 	

@@ -6,18 +6,18 @@ import java.util.Set;
 public class OrderItem {
 	private int orderItemId;
 	private int quantity;
+	private String isDeal;// 订单状态
 	private Book book;
 	private Order order;
 	private Seller seller;
-	/*private Set<Seller> setSeller = new HashSet<Seller>();
 	
-	public Set<Seller> getSetSeller() {
-		return setSeller;
+	public String getIsDeal() {
+		return isDeal;
 	}
 
-	public void setSetSeller(Set<Seller> setSeller) {
-		this.setSeller = setSeller;
-	}*/
+	public void setIsDeal(String isDeal) {
+		this.isDeal = isDeal;
+	}
 
 	public Seller getSeller() {
 		return seller;

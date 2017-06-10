@@ -58,11 +58,11 @@ out.print("用户名:"+session.getAttribute("seller"));
 						href="${pageContext.request.contextPath}/page/modifypwd.jsp"
 						target="_self">修改密码</a> </span> <span>|</span> <span id="nowusername">
 						<a href="user_exit.action" target="_parent">退出</a> </span> <span>|</span>
-					<span id="nowusername"> <a href="seller_getOrder.action">卖家订单</a>
+					<%-- <span id="nowusername"> <a href="seller_getOrder.action">卖家订单</a>
 					</span> <span>|</span>
 					<c:if test="${seller!=null }">
 						<span id="nowusername"> <a>${seller.name }，你好</a> </span>
-					</c:if>
+					</c:if> --%>
 					<c:if test="${user!=null }">
 						<span id="nowusername"> <a>${user.name }，你好</a> </span>
 					</c:if>

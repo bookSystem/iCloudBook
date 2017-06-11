@@ -51,7 +51,24 @@
           
         </div>
     </div>
+<div style="margin:0 auto;clear:both;text-align:center">
+	共[<b>${bookBean.totalCount }</b>]条记录,[<b>${bookBean.totalPage }</b>]页,
+	当前第[<b>${bookBean.currentPage }</b>]页
 
+	<c:if test="${bookBean.currentPage!=1 }">
+			[<a
+			href="book_bookListPage.action?currentPage=${bookBean.currentPage-1 }"><span>前一页</span>
+		</a>]
+		</c:if>
+
+
+
+	<c:if test="${bookBean.currentPage!=bookBean.totalPage}">
+			[<a
+			href="book_bookListPage.action?currentPage=${bookBean.currentPage+1 }"><span>后一页</span>
+		</a>]
+		</c:if>
+</div>
 </main>
 <footer>
     <div align="center" style="margin-top: 20px"><img src="${pageContext.request.contextPath}/img/button1024x65.png"></div>

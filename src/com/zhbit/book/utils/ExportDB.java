@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-
+// 最后版本
 public class ExportDB {
 	public static void main(String[] args) {
 		Configuration con = new Configuration().configure();

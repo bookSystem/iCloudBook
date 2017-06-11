@@ -8,27 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
- 
- 
-<script>
-    function jiesuan() {
-        var cartItemIdArray = new Array();
-        $(":checkbox[checked='checked']").each(function () {
-            if ($(this).val() != "") {
-                cartItemIdArray.push($(this).val());
-            }
-        });
-       	$("#cartItemIds").val(cartItemIdArray.toString());
-        $("#hiddenTotal").val($("#priceTotal").text());
-      
-        $('#shoppingcart').submit();
-    }
-</script>
    
-   
- 
-  
-    
 <body>
 <main style="height: auto;min-height: 700px">
 <jsp:include page="top.jsp"></jsp:include>
@@ -77,10 +57,16 @@
 			                        </td>
 			                        <td style="padding-top: 10px" class="text-center">
 			                            <div class="input-group input-group-sm" style="width: 100px;margin: 0 auto">
-			                                <span class="input-group-addon minus" style="cursor: pointer;"><a href="car_UpdateNum.action?num=${st.bookNum-1 }&bookId=${st.bookId}">-</a></span>
+			                                <%-- <span class="input-group-addon minus" style="cursor: pointer;"><a href="car_UpdateNum.action?num=${st.bookNum-1 }&bookId=${st.bookId}">-</a></span>
 			                                <input type="text" class="number form-control input-sm text-center" value="${st.bookNum }"
 			                                       name="goodssum"/>
 			                                <span class="input-group-addon plus" style="cursor: pointer;"><a href="car_UpdateNum.action?num=${st.bookNum+1 }&bookId=${st.bookId}">+</a></span>
+			                             --%>
+			                            <span class="input-group-addon minus" style="cursor: pointer;">-</span> 
+										<input type="text" class="number form-control input-sm text-center" value="${st.bookNum }" name="goodssum" /> 
+										<span class="input-group-addon plus" style="cursor: pointer;">+</span>
+			                            
+			                            
 			                            </div>
 			                        </td>
 			                        <td class="subtotal number small-bold-red text-center"
@@ -126,7 +112,7 @@
     </div>
 </main>
 <footer>
-    <div align="center" style="margin-top: 20px"><img src="../img/button1024x65.png"></div>
+    <div align="center" style="margin-top: 20px"><img src="${pageContext.request.contextPath}/img/button1024x65.png"></div>
     <div class="footcss" align="center">
         <div class="about">
             <span><a>关于我们</a></span>
@@ -142,4 +128,46 @@
     </div>
 </footer>
 </body>
+
+ 
+<script>
+    function jiesuan() {
+        var cartItemIdArray = new Array();
+        $(":checkbox[checked='checked']").each(function () {
+            if ($(this).val() != "") {
+                cartItemIdArray.push($(this).val());
+            }
+        });
+       	$("#cartItemIds").val(cartItemIdArray.toString());
+        $("#hiddenTotal").val($("#priceTotal").text());
+      
+        $('#shoppingcart').submit();
+    }
+</script>
+   
+<script>
+
+$(document).ready(function(){
+	$(".minus").click(function(){
+		var bookId=$(this).parent("div").parent("td").parent("tr").children("td").children("label").children("input").val();
+		var bookNum=$(this).parent("div").parent("td").parent("tr").children("td:nth-child(5)").children("div").children("input").val();
+		bookNum=Number(bookNum)-1;
+		
+         $.post("car_UpdateNum.action",{num:bookNum,bookId:bookId}); 
+       /*  $.post("car_updateCartBook.action",{num:bookNum,bookId:bookId},function(res){alert(res.toString())}); */
+	 });
+
+	
+	$(".plus").click(function(){
+		var bookId=$(this).parent("div").parent("td").parent("tr").children("td").children("label").children("input").val();
+		var bookNum=$(this).parent("div").parent("td").parent("tr").children("td:nth-child(5)").children("div").children("input").val();
+		bookNum=Number(bookNum)+1;
+		$.post("car_UpdateNum.action",{num:bookNum,bookId:bookId});
+		
+		
+	});
+	
+	
+});
+</script>  
 </html>

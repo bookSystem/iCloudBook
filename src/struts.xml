@@ -17,6 +17,7 @@
 		
 			<!-- 1、用户注册 -->
 			<result name="regist_sucess">/index.jsp</result>
+			<result name="seller_regist_sucess">/loginpage.jsp</result>
 			<result name="regist">/loginpage.jsp</result>
 			
 			<!-- 2、用户登录 -->
@@ -83,7 +84,7 @@
 			<result name="deleteOrder" type="redirectAction">order_myOrderList</result>
 		</action>
 		
-		<action name="seller_*" class="sellerOrderAction" method="{1}">
+		<!-- <action name="seller_*" class="sellerOrderAction" method="{1}">
 			<result name="getOrder">/page/ysscbs/goodstable1.jsp</result>
 			<result name="dealOrder">/page/ysscbs/goodstable1.jsp</result>
 		</action>
@@ -108,7 +109,41 @@
 		<action name="admin_*" class="adminAction" method="{1}">
 			<result name="showUser">/page/ysscbs/usermanager.jsp</result>
 			<result name="deleteUser">/page/ysscbs/usermanager.jsp</result>
+		</action> -->
+		
+		
+		<action name="seller_*" class="sellerOrderAction" method="{1}">
+			<result name="getOrder">/page/ysscbs/goodstable1.jsp</result>
+			<result name="dealOrder">/page/ysscbs/goodstable1.jsp</result>
 		</action>
+		
+		<action name="sellerperson_*" class="sellerAction" method="{1}">
+			<result name="showSeller">/page/ysscbs/personalinfo.jsp</result>
+			<result name="findSeller">/page/ysscbs/yssc.jsp</result>
+			<result name="updateSeller">/page/ysscbs/personalinfo.jsp</result>
+			<result name="input">/page/ysscbs/yssc.jsp</result>
+		</action>
+		
+
+		
+		
+		<action name="sellerBook_*" class="sellerBookAction" method="{1}">
+			<result name="showBook">/page/ysscbs/commodity.jsp</result>
+			<result name="addBook">/page/ysscbs/commodity.jsp</result>
+			<result name="updateBook">/page/ysscbs/commodity.jsp</result>
+			<result name="deleteBook">/page/ysscbs/commodity.jsp</result>
+			<result name="input">/page/ysscbs/yssc.jsp</result>
+		</action>
+		
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="showUser">/page/ysscbs/usermanager.jsp</result>
+			<result name="deleteUser">/page/ysscbs/usermanager.jsp</result>
+			<result name="showSeller">/page/ysscbs/sellermanager.jsp</result>
+			<result name="deleteSeller">/page/ysscbs/sellermanager.jsp</result>
+			<result name="success">/page/ysscbs/admin.jsp</result>
+		</action>
+		
+		
 		
 		
 		

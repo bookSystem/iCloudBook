@@ -193,7 +193,7 @@
     </div>
 </div>
 <footer>
-    <div align="center" style="margin-top: 20px"><img src="../img/button1024x65.png"></div>
+    <div align="center" style="margin-top: 20px"><img src="${pageContext.request.contextPath}/img/button1024x65.png"></div>
     <div class="footcss" align="center">
         <div class="about">
             <span><a>关于我们</a></span>

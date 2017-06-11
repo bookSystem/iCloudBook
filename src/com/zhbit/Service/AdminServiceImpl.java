@@ -40,11 +40,41 @@ public class AdminServiceImpl implements AdminService {
 
 	@SuppressWarnings("all")
 	@Override
-	public PageBean deleteBook(int userId) {
+	public PageBean deleteUser(int userId) {
 		// TODO Auto-generated method stub
 		PageBean deleteUser = new PageBean();
 		 List list = adminDao.deleteUser(userId);
 		 deleteUser.setList(list);
 		return deleteUser;
+	}
+
+	@Override
+	public PageBean showSeller(int currentPage) {
+		PageBean showSeller = new PageBean();
+		showSeller.setCurrentPage(currentPage);
+		
+		int totalCount = adminDao.getCount();
+		showSeller.setTotalCount(totalCount);
+		int pageSize = 8;
+		showSeller.setPageSize(pageSize);
+		 int totalPage =0;
+		 if(totalCount%pageSize==0){
+				totalPage=totalCount/pageSize;
+			}else {
+				totalPage=totalCount/pageSize+1;
+			}
+		 showSeller.setTotalPage(totalPage);
+		 int begin = (currentPage-1)*pageSize;
+		 List list = adminDao.showSeller(begin,pageSize);
+		 showSeller.setList(list);
+		return showSeller;
+	}
+
+	@Override
+	public PageBean deleteSeller(int sellerId) {
+		PageBean deleteSeller = new PageBean();
+		 List list = adminDao.deleteSeller(sellerId);
+		 deleteSeller.setList(list);
+		return deleteSeller;
 	}
 }

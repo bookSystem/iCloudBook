@@ -1,5 +1,8 @@
 package com.zhbit.Domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Book {
 	private int bookId;
 	private String bookName;
@@ -10,10 +13,15 @@ public class Book {
 	private String image;
 	private String bookNo;//书本编号
 	private String type;
-	/*private String child_type;*/
 	private String descripe;
 	private Seller seller;
-	
+	private Set<OrderItem> setOrderItem = new HashSet<OrderItem>();
+	public Set<OrderItem> getSetOrderItem() {
+		return setOrderItem;
+	}
+	public void setSetOrderItem(Set<OrderItem> setOrderItem) {
+		this.setOrderItem = setOrderItem;
+	}
 	public Seller getSeller() {
 		return seller;
 	}

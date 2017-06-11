@@ -3,16 +3,17 @@ package com.zhbit.Service;
 import java.util.List;
 
 import com.zhbit.Domain.Order;
+import com.zhbit.Domain.OrderItem;
 import com.zhbit.Domain.PageBean;
 
 public interface SellerOrderService {
 
 	@SuppressWarnings("all")
 
-	Order findOrder(int orderId);
+	OrderItem findOrder(int orderId);
 
-	void dealOrder(Order order);
+	void dealOrder(OrderItem orderItem);
 
-	PageBean getOrder(int currentPage);
+	PageBean getOrder(int currentPage,int sellerId);
 
 }

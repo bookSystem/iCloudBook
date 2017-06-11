@@ -50,7 +50,7 @@ public class BookServiceImpl implements BookService {
 		
 		int totalCount = bookDao.getCount(type);
 		bookBean.setTotalCount(totalCount);
-		int pageSize = 15;
+		int pageSize = 2;
 		bookBean.setPageSize(pageSize);
 		 int totalPage =0;
 		 if(totalCount%pageSize==0){

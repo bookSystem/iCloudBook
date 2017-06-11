@@ -63,7 +63,7 @@ public class OrderDaoImpl extends HibernateDaoSupport implements OrderDao {
 	@Override
 	public void updateOrder(OrderItem orderItem) {
 		// TODO Auto-generated method stub
-		orderItem.setIsDeal("1");
+		orderItem.setIsDeal("2");
 		this.getHibernateTemplate().update(orderItem);
 	}
 

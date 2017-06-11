@@ -149,6 +149,8 @@ public class SellerBookAction extends ActionSupport {
 		this.imageFileName = imageFileName;
 	}
 	public String addBook(){
+		String type=null;
+		System.out.println(ServletActionContext.getRequest().getParameter("type"));
 		if(image != null){
 			 String  imagePath = ServletActionContext.getServletContext()
 					.getRealPath("/book/images");
@@ -161,6 +163,27 @@ public class SellerBookAction extends ActionSupport {
 			}
 			
 		}
+		if((!ServletActionContext.getServletContext().getRealPath("/book/images").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookNo").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookName").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("author").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookPrice").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookNum").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("publishName").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("type").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("descripe").equals(""))){
+			if(ServletActionContext.getRequest().getParameter("type").equals("文艺")){
+				type = "literature";
+			}
+			if(ServletActionContext.getRequest().getParameter("type").equals("励志")){
+				type = "inspiration";
+			}
+			if(ServletActionContext.getRequest().getParameter("type").equals("教育")){
+				type = "education";
+			}
+			if(ServletActionContext.getRequest().getParameter("type").equals("科技")){
+				type = "technology";
+			}
 		//Seller seller = (Seller) ServletActionContext.getRequest().getSession().getAttribute("seller");
 		Book book = new Book();
 		String img = "book/images/"+imageFileName;
@@ -173,13 +196,16 @@ public class SellerBookAction extends ActionSupport {
 		book.setBookNum(bookNum);
 		book.setPublishName(ServletActionContext.getRequest().getParameter("publishName"));
 		book.setImage(img);
-		book.setType(ServletActionContext.getRequest().getParameter("type"));
+		book.setType(type);
 		book.setDescripe(ServletActionContext.getRequest().getParameter("descripe"));
 		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
 		Seller seller = userService.findSeller(sellerId);
 		book.setSeller(seller);
 		sellerBookService.addBook(book);
 		return "addBook";
+		}else{
+			return INPUT;
+		}
 	}
 	
 
@@ -196,12 +222,22 @@ public class SellerBookAction extends ActionSupport {
 	 * 1銆佹樉绀烘墍鏈夊浘涔�
 	 */
 	public String showBook(){
-		PageBean bookList = (PageBean) sellerBookService.showBook(currentPage);	
+		
+		//int book_flag = 0;
 		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
-		System.out.println(sellerId);
 		ServletActionContext.getRequest().setAttribute("sId",sellerId);
-		ServletActionContext.getRequest().setAttribute("bookList",bookList);
-		return "showBook";		
+		PageBean bookList = (PageBean) sellerBookService.showBook(currentPage,sellerId);
+		/*if(bookList != null){
+			ServletActionContext.getRequest().setAttribute("bookList",bookList);
+			//book_flag=1;
+			//ServletActionContext.getRequest().setAttribute("book_flag",book_flag);
+			
+		}else{*/
+			ServletActionContext.getRequest().setAttribute("bookList",bookList);
+			//ServletActionContext.getRequest().setAttribute("book_flag",book_flag);
+		
+		return "showBook";
+		
 	}
 	
 	/*
@@ -209,6 +245,17 @@ public class SellerBookAction extends ActionSupport {
 	 */
 
 	public String updateBook(){
+		
+		System.out.println(ServletActionContext.getRequest().getParameter("type"));
+		if((!ServletActionContext.getServletContext().getRealPath("/book/images").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookNo").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookName").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("author").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookPrice").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("bookNum").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("publishName").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("type").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("descripe").equals(""))){
 		int bookId = Integer.parseInt(ServletActionContext.getRequest().getParameter("bookId"));		
 		Book book =  sellerBookService.findOne(bookId);
 		book.setBookNo(ServletActionContext.getRequest().getParameter("bookNo"));
@@ -224,8 +271,13 @@ public class SellerBookAction extends ActionSupport {
 		book.setDescripe(ServletActionContext.getRequest().getParameter("descripe"));
 		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
 		ServletActionContext.getRequest().setAttribute("sId",sellerId);
+		Seller seller = userService.findSeller(sellerId);
+		book.setSeller(seller);
 		sellerBookService.updateBook(book,bookId);
 		return "updateBook";
+		}else{
+			return INPUT;
+		}
 	}
 	
 	
@@ -234,8 +286,11 @@ public class SellerBookAction extends ActionSupport {
 	 */
 	public String deleteBook(){
 		int bookId = Integer.parseInt(ServletActionContext.getRequest().getParameter("bookId"));
+		Book book =  sellerBookService.findOne(bookId);
 		sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
 		ServletActionContext.getRequest().setAttribute("sId",sellerId);
+		Seller seller = userService.findSeller(sellerId);
+		book.setSeller(seller);
 		sellerBookService.deleteBook(bookId);
 		return "deleteBook";
 	}

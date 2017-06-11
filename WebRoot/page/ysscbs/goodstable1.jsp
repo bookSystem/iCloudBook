@@ -42,8 +42,7 @@
 </head>
 <body class="page-body skin-navy">
 <%
-	if(request.getAttribute("orderList")==null)
-	{
+	if(request.getAttribute("orderList")==null){
 		if(request.getParameter("sellerId") != null){
 			String sellerId = request.getParameter("sellerId");
 			response.sendRedirect("seller_getOrder.action?sellerId=" +sellerId); 
@@ -52,7 +51,9 @@
 			String sellerId = (String)request.getAttribute("sId");
 			response.sendRedirect("seller_getOrder.action?sellerId" +sellerId); 
 		}
-	}
+}
+		
+		
 %>
 
 <div class="page-container">
@@ -165,84 +166,82 @@
                     </thead>
 
                     <tbody>
-                    <c:forEach items="${orderList.list}" var="order">
+                    <c:if test="${not empty orderList.list}">
+                    <c:forEach items="${orderList.list}" var="item">
                     <tr>
+                    <input type="hidden" name="orderItemId" value="${item.orderItemId }" >
                         <td>
                             <%--内容超出范围会显示--%>
                             <div class="tdcss" style="width: 30px">
-                                ${order.orderId }
+                                ${item.order.orderId }
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 70px">
-                                ${order.orderNumber }
+                                ${item.order.orderNumber }
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 50px">
-                                 ${order.orderTime }
+                                 ${item.order.orderTime }
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 30px">
-                                 ${order.total }
+                               ${item.order.total }
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width: 40px">
-                                <c:choose>
-									<c:when test="${order.isDeal eq 0}">等待发货</c:when>
-									<c:when test="${order.isDeal eq 1}">等待确认</c:when>
-									<c:when test="${order.isDeal eq 2}">交易成功</c:when>
-									<c:when test="${order.isDeal eq 3}">已取消</c:when>
-								</c:choose>	
+                                 <c:choose>
+									<c:when test="${item.isDeal eq 0}">等待发货</c:when>
+									<c:when test="${item.isDeal eq 1}">等待确认</c:when>
+									<c:when test="${item.isDeal eq 2}">交易成功</c:when>
+									<c:when test="${item.isDeal eq 3}">已取消</c:when>
+								</c:choose>
+								
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:50px;">
-                                 ${order.user.telnum }
+                                 ${item.order.user.telnum }
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:50px;">
-                                ${order.user.address }
+                                 ${item.order.address }
                             </div>
                         </td>
                         <td>
                             <div class="tdcss" style="width:50px;">
-                                ${order.user.userId }
+                                 ${item.order.user.userId }
                             </div>
                         </td>
                         <td width="120px" align="center">
-                        <c:if test="${order.isDeal eq 0}">
+                         
+                        <c:if test="${item.isDeal eq 0}">
                             <a onclick="editInfo(this);"
                                class="btn btn-secondary btn-sm btn-icon icon-left">
                                 发货
                             </a>
 						</c:if>
-						<c:if test="${order.isDeal eq 1}">
+						<c:if test="${item.isDeal eq 1}">
                             <a onclick=""
                                class="btn btn-secondary btn-sm btn-icon icon-left">
-                                完成发货
+                                等待确认
                             </a>
 						</c:if>
-						<c:if test="${order.isDeal eq 2}">
+						<c:if test="${item.isDeal eq 2}">
                             <a onclick=""
                                class="btn btn-secondary btn-sm btn-icon icon-left">
                                 交易成功
                             </a>
-						</c:if>
-						<c:if test="${order.isDeal eq 3}">
-                            <a onclick=""
-                               class="btn btn-danger btn-sm btn-icon icon-left">
-                                已取消
-                            </a>
-						</c:if>
-                            
-
+                           </c:if> 
                         </td>
+                       
                     </tr>
 					</c:forEach>
+					</c:if>
                     </tbody>
                 </table>
 
@@ -280,7 +279,7 @@
     function editInfo(obj) {
 //        修改函数
         var divs = $(obj).parent().parent().children().find('div');
-        $('#corderid').val(divs.eq(0).text().trim());
+        $('#corderid').val($(obj).parent().parent().find("input[name='orderItemId']").val());
         $('#corderno').val(divs.eq(1).text().trim());
         $('#cordertotal').val(divs.eq(3).text().trim());
         $('#corderphone').val(divs.eq(5).text().trim());

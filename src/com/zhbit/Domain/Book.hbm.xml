@@ -18,7 +18,10 @@
 		<property name="descripe" column="descripe" not-null="true"></property>
 
 		<many-to-one name="seller" column="sellerId" class="com.zhbit.Domain.Seller"></many-to-one>
-		
+		<set name="setOrderItem" table="t_orderItem" inverse="true" lazy="false" cascade="all">
+			<key column="bookId"></key>
+			<one-to-many class="com.zhbit.Domain.OrderItem" />
+		</set>
 		
 		<!-- 
 		<set name="setOrder">

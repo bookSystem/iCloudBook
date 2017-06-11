@@ -10,7 +10,7 @@ import com.zhbit.Service.AdminService;
 
 public class AdminAction extends ActionSupport{
 	/**
-	 * 
+	 * 测试文字最后版本
 	 */
 	//
 	private static final long serialVersionUID = 1L;
@@ -29,6 +29,15 @@ public class AdminAction extends ActionSupport{
 	}
 	
 	private int userId;
+	private int sellerId;
+	public int getSellerId() {
+		return sellerId;
+	}
+
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
@@ -46,8 +55,22 @@ public class AdminAction extends ActionSupport{
 	public String deleteUser(){
 		System.out.println(ServletActionContext.getRequest().getParameter("userId"));
 		int userId = Integer.parseInt(ServletActionContext.getRequest().getParameter("userId"));
-		PageBean deleteUser = adminService.deleteBook(userId);
+		PageBean deleteUser = adminService.deleteUser(userId);
 		ServletActionContext.getRequest().setAttribute("showUser", deleteUser);
 		return "deleteUser";
+	}
+	
+	public String showSeller(){
+		PageBean showSeller = adminService.showSeller(currentPage);
+		ServletActionContext.getRequest().setAttribute("showSeller", showSeller);
+		return "showSeller";
+	}
+	
+	public String deleteSeller(){
+		System.out.println(ServletActionContext.getRequest().getParameter("sellerId"));
+		int sellerId = Integer.parseInt(ServletActionContext.getRequest().getParameter("sellerId"));
+		PageBean deleteSeller = adminService.deleteSeller(sellerId);
+		ServletActionContext.getRequest().setAttribute("showSeller", deleteSeller);
+		return "deleteSeller";
 	}
 }

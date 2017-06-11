@@ -81,9 +81,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -114,11 +116,16 @@ public class SellerBookDaoImpl extends HibernateDaoSupport implements SellerBook
 
 	@SuppressWarnings("all")
 	@Override
-	public List showBook(int begin, int pageSize) {
+	public List showBook(int begin, int pageSize,int sellerId) {
 		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
 		DetachedCriteria criteria = DetachedCriteria.forClass(Book.class);
-		List list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
-		return list;
+		if(criteria.add(Restrictions.eq("seller.sellerId", sellerId)) != null){
+			List list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+			return list;
+		}else{
+			return null;
+		}
 	}
 
 	@SuppressWarnings("all")

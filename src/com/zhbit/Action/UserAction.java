@@ -98,7 +98,6 @@ public class UserAction extends ActionSupport{
 					User user = new User();
 					user.setName(name);
 					user.setPassword(password);
-					/*user.setRepassword(repassword);*/
 					user.setEmail(email);
 					user.setTelnum(telnum);
 					user.setAddress(address);
@@ -125,7 +124,7 @@ public class UserAction extends ActionSupport{
 					Seller s = userService.regist(seller);
 					ServletActionContext.getRequest()
 					.setAttribute("seller", s);
-					return "regist_sucess";
+					return "seller_regist_sucess";
 				}
 				
 				

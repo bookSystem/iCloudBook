@@ -54,7 +54,10 @@ public class SellerAction extends ActionSupport{
 	 * 2銆佷慨鏀瑰浘涔
 	 */
 
-	public String updateSeller(){		
+	public String updateSeller(){
+		if((!ServletActionContext.getRequest().getParameter("email").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("telnum").equals(""))&&
+				(!ServletActionContext.getRequest().getParameter("address").equals(""))){
 		Seller seller = userService.findSeller(sellerId);
 		if(ServletActionContext.getRequest().getParameter("peruserpwd")!=null){
 			seller.setPassword(ServletActionContext.getRequest().getParameter("peruserpwd"));
@@ -66,7 +69,9 @@ public class SellerAction extends ActionSupport{
 		ServletActionContext.getRequest().setAttribute("sId",sellerId);
 		sellerService.updateSeller(seller,sellerId);
 		return "updateSeller";
-		
+		}else{
+			return INPUT;
+		}
 	}
 	
 }

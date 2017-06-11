@@ -4,7 +4,7 @@ body {
 }
 
 .clear {
-    /*Çå³ýÉÏÏÂdiv¸¡¶¯*/
+    /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½divï¿½ï¿½ï¿½ï¿½*/
     clear: both;
 }
 
@@ -14,7 +14,7 @@ a {
 
 /*header css*/
 .greyheader {
-    /*¶¥²¿»ÒÉ«µ¼º½Ìõ*/
+    /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
     width: 100%;
     min-width: 1050px;
     height: 28px;
@@ -47,7 +47,7 @@ nav {
     height: auto;
     /*    background-color: #cccccc;*/
     box-shadow: 0px 1px 3px rgba(51, 51, 51, 0.7);
-    /*×óÓÒ ÉÏÏÂ Ä£ºý*/
+    /*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½*/
 }
 
 #navdiv {
@@ -563,10 +563,17 @@ a:hover .t{
 }
 
 .bookdisplay img {
+    
+    height: 100%;
+    
+}
+
+.bookdisplay .divimg {
     width: 300px;
-    height: 300px;
+    height: 400px;
     clear: right;
     float: left;
+    overflow:hidden;
 }
 
 .bookdisplay .bookinfo {

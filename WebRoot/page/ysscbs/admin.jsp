@@ -56,7 +56,14 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/page/ysscbs/usermanager.jsp">
                         <i class="linecons-user"></i>
-                        <span class="title">用户管理</span>
+                        <span class="title">买家管理</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath}/page/ysscbs/sellermanager.jsp">
+                        <i class="linecons-user"></i>
+                        <span class="title">卖家管理</span>
                     </a>
 
                 </li>
@@ -90,19 +97,21 @@
                     </a>
 
                     <ul class="dropdown-menu user-profile-menu list-unstyled">
+                       <!--  
                         <li>
                             <a href="personalinfo.jsp">
                                 <i class="fa-user"></i>
                                 个人资料
                             </a>
                         </li>
-
+						-->
                         <li class="last">
-                            <a href="yssclogin.jsp">
+                            <a href="${pageContext.request.contextPath}/loginpage.jsp">
                                 <i class="fa-lock"></i>
                                 登出账号
                             </a>
                         </li>
+                        
                     </ul>
                 </li>
 
